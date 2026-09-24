@@ -1,0 +1,18 @@
+{
+  "schema_version": "gtkg.install-manifest/v1",
+  "version": "0.3.0-dev.2",
+  "platform": "darwin-arm64",
+  "files": ["bin/gtkg", "share/gtkg/UPGRADE.txt"],
+  "modes": {
+    "bin/gtkg": 493,
+    "share/gtkg/UPGRADE.txt": 420
+  },
+  "digests": {
+    "bin/gtkg": "sha256:9c02b62b9a34ba117a935058a83197d56733e5fc64774f0675877cd86b31ebd9",
+    "share/gtkg/UPGRADE.txt": "sha256:7e084bd59e9441d8c74624958f20b6cf900201ac971a45266385845b904a3c86"
+  },
+  "destinations": {
+    "bin/gtkg": "bin/gtkg",
+    "share/gtkg/UPGRADE.txt": "share/gtkg/UPGRADE.txt"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "gtkg.f01-gold-expectations/v1",
+  "corpus_generator": "crates/gtkg-testkit/fixtures/f01_gold_corpus.sh",
+  "files": {
+    "src/lib.rs": [
+      "Task 结构包含 id、title、done 字段",
+      "Task::new 创建未完成（done=false）任务",
+      "Task::complete 幂等拒绝重复完成并返回 false",
+      "next_id 取最大 id 加一，空列表从 1 开始"
+    ],
+    "src/store.rs": [
+      "Store.add 借助 next_id 分配递增 id",
+      "Store.complete 按 id 完成，缺失或已完成返回 false",
+      "open_as_jsonl 只导出未完成任务",
+      "store 依赖 lib 模块（use crate::lib）"
+    ],
+    "py/notify.py": [
+      "render_completion 渲染 completed 事件 JSON",
+      "render_summary 渲染 open/done 计数的 summary 事件 JSON",
+      "模块依赖 json 标准库"
+    ],
+    "py/stats.py": [
+      "completion_rate 在 total 为 0 时返回 0.0 避免除零",
+      "is_healthy 默认阈值 0.5"
+    ],
+    "web/board.ts": [
+      "TaskView 接口含 id/title/done",
+      "renderRow 以 [x]/[ ] 前缀渲染单行",
+      "renderBoard 将未完成任务排在前面"
+    ],
+    "docs/guide.md": [
+      "文档说明 Store.add/complete/open_as_jsonl 的用法",
+      "文档说明 renderBoard 未完成任务排前"
+    ],
+    "docs/rules.md": [
+      "规则 1：任务只能完成一次，重复完成返回 false",
+      "规则 3：完成率健康阈值默认 0.5",
+      "规则 4：导出只包含未完成任务"
+    ],
+    "Cargo.toml": [
+      "包名 taskboard，无依赖"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema": {
+    "version": "gtkg.lsp-snapshot/v1",
+    "sha256": "sha256:97a36add17cb89ec94b92222e8c4b1673dbb5bd5443644f1f346140ad4dd19c1"
+  },
+  "protocol_version": "3.17",
+  "position_encoding": "utf-8",
+  "producer": {
+    "name": "rust-analyzer",
+    "version": "2026-08-24",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "license": "MIT OR Apache-2.0",
+    "config_sha256": "sha256:9569022226845a35bce92d52c125556785d8a1d67f6e78b900bb3dc02bac9228"
+  },
+  "source_snapshot_sha256": "sha256:c45839fdd713b1acb620523e6c9d80ac07fc271113cfad5eb76ef328045e6ddc",
+  "capture": {
+    "mode": "frozen_file",
+    "deterministic": true,
+    "lsp_server_invocation_count": 0,
+    "json_rpc_request_count": 0,
+    "json_rpc_response_count": 0
+  },
+  "documents": [
+    {
+      "relative_path": "src/main.rs",
+      "language_id": "rust",
+      "text": "fn main() {\n    helper(\"中文🙂\");\n}\n\nfn helper(message: &str) {}\n",
+      "text_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "symbols": [
+        {
+          "symbol_id": "sym-main",
+          "name": "main",
+          "kind": "function",
+          "range": [0, 0, 2, 1],
+          "selection_range": [0, 3, 0, 7],
+          "references": []
+        }
+      ],
+      "diagnostics": []
+    }
+  ]
+}

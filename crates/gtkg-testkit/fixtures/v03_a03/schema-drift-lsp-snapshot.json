@@ -1,0 +1,33 @@
+{
+  "schema": {
+    "version": "gtkg.lsp-snapshot/v2",
+    "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "protocol_version": "3.17",
+  "position_encoding": "utf-8",
+  "producer": {
+    "name": "rust-analyzer",
+    "version": "2026-08-24",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "license": "MIT OR Apache-2.0",
+    "config_sha256": "sha256:9569022226845a35bce92d52c125556785d8a1d67f6e78b900bb3dc02bac9228"
+  },
+  "source_snapshot_sha256": "sha256:c45839fdd713b1acb620523e6c9d80ac07fc271113cfad5eb76ef328045e6ddc",
+  "capture": {
+    "mode": "frozen_file",
+    "deterministic": true,
+    "lsp_server_invocation_count": 0,
+    "json_rpc_request_count": 0,
+    "json_rpc_response_count": 0
+  },
+  "documents": [
+    {
+      "relative_path": "src/main.rs",
+      "language_id": "rust",
+      "text": "fn main() {}\n",
+      "text_sha256": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "symbols": [],
+      "diagnostics": []
+    }
+  ]
+}

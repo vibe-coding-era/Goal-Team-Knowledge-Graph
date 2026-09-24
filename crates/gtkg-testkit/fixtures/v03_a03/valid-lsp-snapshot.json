@@ -1,0 +1,65 @@
+{
+  "schema": {
+    "version": "gtkg.lsp-snapshot/v1",
+    "sha256": "sha256:97a36add17cb89ec94b92222e8c4b1673dbb5bd5443644f1f346140ad4dd19c1"
+  },
+  "protocol_version": "3.17",
+  "position_encoding": "utf-8",
+  "producer": {
+    "name": "rust-analyzer",
+    "version": "2026-08-24",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "license": "MIT OR Apache-2.0",
+    "config_sha256": "sha256:9569022226845a35bce92d52c125556785d8a1d67f6e78b900bb3dc02bac9228"
+  },
+  "source_snapshot_sha256": "sha256:c45839fdd713b1acb620523e6c9d80ac07fc271113cfad5eb76ef328045e6ddc",
+  "capture": {
+    "mode": "frozen_file",
+    "deterministic": true,
+    "lsp_server_invocation_count": 0,
+    "json_rpc_request_count": 0,
+    "json_rpc_response_count": 0
+  },
+  "documents": [
+    {
+      "relative_path": "src/main.rs",
+      "language_id": "rust",
+      "text": "fn main() {\n    helper(\"中文🙂\");\n}\n\nfn helper(message: &str) {}\n",
+      "text_sha256": "sha256:95646d876c0f9b302ec8ed7f6528991db6a72b9742c5d6a75cd60bac7cea157a",
+      "symbols": [
+        {
+          "symbol_id": "sym-main",
+          "name": "main",
+          "kind": "function",
+          "range": [0, 0, 2, 1],
+          "selection_range": [0, 3, 0, 7],
+          "references": [
+            {
+              "kind": "call",
+              "range": [1, 4, 1, 10],
+              "target_reference": "helper",
+              "target_symbol_ids": ["sym-helper"]
+            }
+          ]
+        },
+        {
+          "symbol_id": "sym-helper",
+          "name": "helper",
+          "kind": "function",
+          "range": [4, 0, 4, 27],
+          "selection_range": [4, 3, 4, 9],
+          "references": []
+        }
+      ],
+      "diagnostics": [
+        {
+          "diagnostic_id": "diag-non-ascii",
+          "severity": "information",
+          "code": "non_ascii_literal",
+          "message": "non-ASCII literal retained in frozen evidence",
+          "range": [1, 12, 1, 22]
+        }
+      ]
+    }
+  ]
+}

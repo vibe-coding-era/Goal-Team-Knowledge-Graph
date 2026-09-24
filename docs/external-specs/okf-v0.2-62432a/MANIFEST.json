@@ -1,0 +1,14 @@
+{
+  "schema_version": "gtkg.external-asset-manifest/v1",
+  "asset_id": "google-okf-v0.2-spec-62432a",
+  "kind": "upstream_spec_raw",
+  "source_url": "https://raw.githubusercontent.com/GoogleCloudPlatform/knowledge-catalog/62432a095456147ee71e70ac6e4dc0d2dea3ac30/okf/SPEC.md",
+  "upstream_repository": "GoogleCloudPlatform/knowledge-catalog",
+  "upstream_commit": "62432a095456147ee71e70ac6e4dc0d2dea3ac30",
+  "relative_path": "SPEC.md",
+  "sha256": "sha256:26aa5da029278939f914e578107242d9607d4f2dc5fe153272b82f9ed1030101",
+  "bytes": 37748,
+  "license_status": "not_independently_licensed_by_gtkg; retain upstream repository notices before redistribution",
+  "acquired_at": "2026-08-29",
+  "purpose": "T03 current official-format raw-spec pin only; this file does not prove reference compatibility or four-axis conformance."
+}

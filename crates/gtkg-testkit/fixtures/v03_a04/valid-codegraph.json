@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "type": "CodeFile",
+      "properties": {
+        "path": "src/main.rs",
+        "language": "rust"
+      }
+    },
+    {
+      "id": 1,
+      "type": "CodeFile",
+      "properties": {
+        "path": "src/lib.rs",
+        "language": "rust"
+      }
+    },
+    {
+      "id": 2,
+      "type": "Function",
+      "properties": {
+        "name": "main",
+        "line_start": 1,
+        "line_end": 6,
+        "visibility": "public",
+        "signature": "fn main()",
+        "is_async": false,
+        "is_test": false
+      }
+    },
+    {
+      "id": 3,
+      "type": "Function",
+      "properties": {
+        "name": "helper",
+        "line_start": 1,
+        "line_end": 3,
+        "visibility": "private",
+        "signature": "fn helper()",
+        "is_async": false,
+        "is_test": false
+      }
+    }
+  ],
+  "links": [
+    {
+      "id": 0,
+      "source": 0,
+      "target": 2,
+      "type": "Contains",
+      "properties": {}
+    },
+    {
+      "id": 1,
+      "source": 1,
+      "target": 3,
+      "type": "Contains",
+      "properties": {}
+    },
+    {
+      "id": 2,
+      "source": 2,
+      "target": 3,
+      "type": "Calls",
+      "properties": {
+        "line": 3
+      }
+    },
+    {
+      "id": 3,
+      "source": 0,
+      "target": 1,
+      "type": "Imports",
+      "properties": {
+        "symbols": ["helper"]
+      }
+    }
+  ]
+}

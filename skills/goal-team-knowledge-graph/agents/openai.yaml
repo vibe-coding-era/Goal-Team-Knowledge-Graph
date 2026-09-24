@@ -1,0 +1,4 @@
+interface:
+  display_name: "Goal-Team Knowledge Graph"
+  short_description: "Build and inspect Git-bound OKF knowledge bundles"
+  default_prompt: "Use $goal-team-knowledge-graph to build or inspect a Git-bound OKF knowledge bundle with the local gtkg Core."

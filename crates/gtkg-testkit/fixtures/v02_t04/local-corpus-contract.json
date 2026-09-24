@@ -1,0 +1,56 @@
+{
+  "schema_version": "gtkg.corpus-manifest/v2",
+  "manifest_id": "t04-local-adversarial",
+  "revision": "r1",
+  "kind": "adversarial",
+  "source": {
+    "origin": "fixture",
+    "source_id": "t04-fixture",
+    "revision": "fixture-r1",
+    "content_sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "license_id": "fixture-only"
+  },
+  "split": {
+    "calibration": [
+      {
+        "item_id": "fixture-calibration-01",
+        "content_sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ],
+    "evaluation": [
+      {
+        "item_id": "fixture-evaluation-01",
+        "content_sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    ],
+    "holdout": [
+      {
+        "item_id": "fixture-holdout-01",
+        "content_sha256": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ]
+  },
+  "annotation": {
+    "state": "fixture_only",
+    "annotator_ids": ["fixture"],
+    "adjudicator_id": null,
+    "guideline_sha256": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "expected_results_sha256": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "host": {
+    "host_id": "fixture-host",
+    "os_family": "fixture",
+    "architecture": "fixture",
+    "cpu_model": "fixture-cpu",
+    "logical_cores": 1,
+    "memory_bytes": 1,
+    "toolchain_sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "workload_sha256": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "readiness": {
+    "status": "blocked",
+    "blocker_code": "E_V2_EXTERNAL_CORPUS_NOT_FROZEN",
+    "pass_count": 0
+  },
+  "manifest_sha256": "sha256:d94b5e075842f347cfeb7a14a298e281fe7cb60758b3683c40e6751c37ed219f"
+}

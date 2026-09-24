@@ -1,0 +1,33 @@
+[package]
+name = "gtkg-core"
+description = "File-only deterministic knowledge pipeline and dispatcher for GTKG"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+test-faults = []
+
+[dependencies]
+gtkg-extract = { path = "../gtkg-extract" }
+gtkg-protocol = { path = "../gtkg-protocol" }
+getrandom.workspace = true
+hex.workspace = true
+hmac.workspace = true
+rustix.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+serde_yaml.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+toml_edit.workspace = true
+unicode-normalization = "0.1.25"
+walkdir.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,41 @@
+{
+  "schema_version": "gtkg.a06-trusted-oracle-material/v1",
+  "pin": {
+    "schema_version": "gtkg.adapter-trusted-oracle-pin/v1",
+    "pin_id": "a06-five-adapter-source-judged-r1",
+    "expected_oracle_sha256": "sha256:f59b399229016b698332d27259f4e240a310e55e141643c5a4429266fe4bad91",
+    "review_material_sha256": "sha256:65f3e62f0e52b41d22704c66273598d9fd3a40c147e81dc3ff1a72d8ddecf2f5",
+    "pin_sha256": "sha256:1c20b704d8ba34b7f616b543655d12caf297679100a8941c8c53b71c83099ccf"
+  },
+  "review_material": {
+    "reviewer_role": "independent source judge",
+    "derivation_policy": "judge frozen source and export semantics before candidate mutation; runtime submissions may not replace this expected oracle digest",
+    "source_denominator_sha256": "sha256:bf335acbd42d7fabd19aefc74b5f9a67b4c57c305faa2ab90b603cd6b42714df",
+    "judgments": [
+      {"adapter_kind": "native", "source": "ledger.rs", "claims": ["Entry import is explicit", "persist call is source-located but unresolved and cannot be promoted"]},
+      {"adapter_kind": "scip", "source": "valid-scip.json plus src/lib.rs bytes", "claims": ["run references helper", "helper is the only allowed known target"]},
+      {"adapter_kind": "lsp_snapshot", "source": "valid-lsp-snapshot.json plus src/main.rs bytes", "claims": ["main calls helper", "sym-helper is the only allowed known target", "helper alias requires a separately frozen alias revision"]},
+      {"adapter_kind": "codegraph_export", "source": "valid-codegraph.json", "claims": ["four locator-only links", "no source bytes means no verified target promotion"]},
+      {"adapter_kind": "graphify_export", "source": "strict-graphify-v2.json", "claims": ["EXTRACTED INFERRED AMBIGUOUS remain distinct", "source locations are locators not exact evidence", "hyperedges remain explicit omissions"]}
+    ],
+    "required_outcome": {"false_confirmed": 0, "trust_laundering": 0, "collision_winner_count": 0, "canonical_write_count": 0}
+  },
+  "oracle": {
+    "schema_version": "gtkg.adapter-semantic-oracle/v1",
+    "expectations": [
+      {"adapter_descriptor_sha256":"sha256:26f645287f951c487824792c6f275ceb1b1988852b957598eef9d6526a13c4b6","fact_id":"lsp-fact-edge-7ace8176a6b40b4da0606a42012438f16364c1e619ebbb6c871b497c40f5ff99","accepted_target_references":["helper"],"candidate_node_ids":["lsp-node-178200f3dc8ea6ca6ebf50cb67d32ff0023d4f0679e8b48d518db704fb111136"],"candidate_state":"candidate_external","trust_state":"extracted"},
+      {"adapter_descriptor_sha256":"sha256:3b8a340095526b53a5dece954149bfeefde6b06ec4b988c6a187784506b36c32","fact_id":"graphify-fact-edge-3fbc45c90876e9ad301006c3abf3b9b0a5238ecd3c5179480404895a88dcb5c0","accepted_target_references":["main"],"candidate_node_ids":["graphify-node-223dbefdbc73527f1ba049bb7cdf8ec65f211c85f81aebadd1e2438d27ead194"],"candidate_state":"locator_only","trust_state":"extracted"},
+      {"adapter_descriptor_sha256":"sha256:3b8a340095526b53a5dece954149bfeefde6b06ec4b988c6a187784506b36c32","fact_id":"graphify-fact-edge-842ea022be196ca834c3c5ae3da94fbecefeebd98cf4a0257abda99fe17cd99a","accepted_target_references":["authentication"],"candidate_node_ids":["graphify-node-3fc328e377a9d07d3eef819d20e1f144c2a9ac32eb755a283f48d9d7a1a71e61"],"candidate_state":"ambiguous","trust_state":"ambiguous"},
+      {"adapter_descriptor_sha256":"sha256:3b8a340095526b53a5dece954149bfeefde6b06ec4b988c6a187784506b36c32","fact_id":"graphify-fact-edge-9deae60bbf8ae06403fd3eb8c80fab01921e61f344207a3a5d419ef8ad713d9c","accepted_target_references":["authentication"],"candidate_node_ids":["graphify-node-3fc328e377a9d07d3eef819d20e1f144c2a9ac32eb755a283f48d9d7a1a71e61"],"candidate_state":"candidate_external","trust_state":"inferred"},
+      {"adapter_descriptor_sha256":"sha256:3b8a340095526b53a5dece954149bfeefde6b06ec4b988c6a187784506b36c32","fact_id":"graphify-fact-edge-a33f0b20d984bcdc5bc89041813b747bebb8527ae57a52f05bd895a3b5863ca6","accepted_target_references":["helper"],"candidate_node_ids":["graphify-node-5fd5ff5cee779d624a0bf345bece24cfa0412cd226949b75cc0cc53c2c7cd618"],"candidate_state":"candidate_external","trust_state":"extracted"},
+      {"adapter_descriptor_sha256":"sha256:a6ee57cfc521464cec2fb2e8df1b40cba282d592ae37538f13402d1bc1a594c6","fact_id":"scip-fact-edge-b4a754aab7c6ada31d331487e4a9bae28a9279f88a7e1159a54f97d2f86e77ef","accepted_target_references":["helper","rust cargo demo 0.1.0 lib/helper()."],"candidate_node_ids":["scip-node-ef1142c1320bc471c81f8e311275d108e223c47ba16afc9a0d06b6346e0c56b7"],"candidate_state":"candidate_external","trust_state":"extracted"},
+      {"adapter_descriptor_sha256":"sha256:e2ee056d9b14666e6fa13a5851fc35c31ce082c3a5f9d9e097844c9bfcd32ce4","fact_id":"codegraph-fact-edge-0e540b6c93dad439dd29b37c04f33d5e636d22ed658855093006baf9d49282ef","accepted_target_references":["main"],"candidate_node_ids":["codegraph-node-28fdcdaea99bb493005be2c4756c55889144521e968ff8a30de72af439e3f9d6"],"candidate_state":"locator_only","trust_state":"unverified"},
+      {"adapter_descriptor_sha256":"sha256:e2ee056d9b14666e6fa13a5851fc35c31ce082c3a5f9d9e097844c9bfcd32ce4","fact_id":"codegraph-fact-edge-2f79bc46f01fb6bc7c552f494d120d0c7c18d92f59e59dee53dec93acb22fff3","accepted_target_references":["helper"],"candidate_node_ids":["codegraph-node-e32159c224a741ea1d01e0480a7743b86cfddd333cc6fc5a76c0b31add1eee95"],"candidate_state":"locator_only","trust_state":"unverified"},
+      {"adapter_descriptor_sha256":"sha256:e2ee056d9b14666e6fa13a5851fc35c31ce082c3a5f9d9e097844c9bfcd32ce4","fact_id":"codegraph-fact-edge-6020be905d6f3cbb0b572cab82474c11720856c835885f1e32ea99eaf3a12922","accepted_target_references":["helper"],"candidate_node_ids":["codegraph-node-e32159c224a741ea1d01e0480a7743b86cfddd333cc6fc5a76c0b31add1eee95"],"candidate_state":"locator_only","trust_state":"unverified"},
+      {"adapter_descriptor_sha256":"sha256:e2ee056d9b14666e6fa13a5851fc35c31ce082c3a5f9d9e097844c9bfcd32ce4","fact_id":"codegraph-fact-edge-e401284ed28dbe53d30cda5eb616430d584a3af9ecfeb7724489fda543e0811d","accepted_target_references":["src/lib.rs"],"candidate_node_ids":["codegraph-node-95f1fa39c55acb26b305ac20dbef6d92b86c6ba4d489b02585bc81d6e4eef86c"],"candidate_state":"locator_only","trust_state":"unverified"},
+      {"adapter_descriptor_sha256":"sha256:f2ebc725ae510ba1f622c0e66403c0ca8f5e935e0636d659f733660a7303722a","fact_id":"native-edge-fact:v1:9af7293b96df3d614eb0f02c93b45c1015bfebde8f11d65b8b5c3c20d77d5d63","accepted_target_references":["crate::model::Entry"],"candidate_node_ids":[],"candidate_state":"locator_only","trust_state":"inferred"},
+      {"adapter_descriptor_sha256":"sha256:f2ebc725ae510ba1f622c0e66403c0ca8f5e935e0636d659f733660a7303722a","fact_id":"native-edge-fact:v1:e928cf2ed5a1703752994c6280040a619060853c170ef424e0e1ad7b9ba591ef","accepted_target_references":["persist"],"candidate_node_ids":[],"candidate_state":"locator_only","trust_state":"inferred"}
+    ],
+    "oracle_sha256":"sha256:f59b399229016b698332d27259f4e240a310e55e141643c5a4429266fe4bad91"
+  }
+}

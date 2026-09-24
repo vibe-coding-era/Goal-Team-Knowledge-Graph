@@ -1,0 +1,25 @@
+{
+  "schema_version": "gtkg.package-manifest/v1",
+  "product_version": "V0.3",
+  "crate_version": "0.3.0",
+  "license_spdx": "Apache-2.0",
+  "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "state": "development_manifest",
+  "release_asset": false,
+  "required_files": [
+    {"path":"Cargo.toml","sha256":"e9d635fdfefa873ff2adb08e525b379348800a287a2298a4183d89c8d97383cc"},
+    {"path":"Cargo.lock","sha256":"0206615cdba3b4d9a6f59eb9cf7c79fb3cc9792530ce503664cdfb6154552c9d"},
+    {"path":"README.md","sha256":"ddecbebb2d6fdf15ba0b2f81b0e7986f5b21efe482be113cf67959bc92c02802"},
+    {"path":"LICENSE","sha256":"c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"},
+    {"path":"NOTICE","sha256":"fac659816f920667dcc6b9bce91c66304eb32eef5f020db4f8e2211235f171b7"},
+    {"path":"VERSION","sha256":"d915cc95d6ca8f47ae297713ed46d4e5c5d99ddd29fc3c61e263bdf305f2b5b0"}
+  ],
+  "managed_roots": ["crates/", "skills/", "templates/", "scripts/"],
+  "forbidden_prefixes": [".git/", "target/", "develops/", ".workbuddy/", "deliverables/"],
+  "non_claims": {
+    "release_built": false,
+    "release_published": false,
+    "installed": false,
+    "current_activated": false
+  }
+}

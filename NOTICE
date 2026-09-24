@@ -1,0 +1,10 @@
+GTKG
+Copyright 2026 GTKG contributors
+
+GTKG is licensed under the Apache License 2.0. The complete license text is
+provided in LICENSE.
+
+This Development source tree uses third-party Rust, JavaScript, schema, and
+reference materials. Their individual copyright, license, and notice terms
+remain with their respective authors. A Development package manifest is not
+a Release asset or a substitute for the final third-party license audit.

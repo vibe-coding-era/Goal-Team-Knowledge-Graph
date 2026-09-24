@@ -1,0 +1,13 @@
+{
+  "schema_version": "gtkg.playwright-cli-lock/v1",
+  "package": "@playwright/cli",
+  "version": "0.1.18",
+  "resolved_at_utc": "2026-08-17T12:42:20Z",
+  "resolved_from": "https://registry.npmjs.org",
+  "dist": {
+    "tarball": "https://registry.npmjs.org/@playwright/cli/-/cli-0.1.18.tgz",
+    "integrity": "sha512-ggNfYYH+GsZTGUiBEL8f6N5j0seYEUE52v+fIWqK/A36QG36cL0EJ79qWTXYO2uZMUU7vm+jk3x0fKCPL6UuIw==",
+    "shasum": "28616039f0fa7f1c18d8d3b56204ebea38776d82"
+  },
+  "notes": "Pinned for F03/B17: replaces the floating @playwright/cli@latest reference in the external wrapper. playwright_cli_locked.sh must reference exactly this version."
+}

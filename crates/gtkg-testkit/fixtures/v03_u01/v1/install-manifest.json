@@ -1,0 +1,18 @@
+{
+  "schema_version": "gtkg.install-manifest/v1",
+  "version": "0.3.0-dev.1",
+  "platform": "darwin-arm64",
+  "files": ["bin/gtkg", "share/gtkg/README.txt"],
+  "modes": {
+    "bin/gtkg": 493,
+    "share/gtkg/README.txt": 420
+  },
+  "digests": {
+    "bin/gtkg": "sha256:ffc9300a8886cb75f5f41e124badd414efcf33dedee6fef5b3ab42aa7f53d77a",
+    "share/gtkg/README.txt": "sha256:9eb1b9b4ba850c388deb7822059b302e5b3d79479fab3a032b2fd0f8f6006be3"
+  },
+  "destinations": {
+    "bin/gtkg": "bin/gtkg",
+    "share/gtkg/README.txt": "share/gtkg/README.txt"
+  }
+}

@@ -1,0 +1,4 @@
+.gtkg-h05-current-layout {
+  display: grid;
+  grid-template-columns: 20rem minmax(0, 1fr);
+}

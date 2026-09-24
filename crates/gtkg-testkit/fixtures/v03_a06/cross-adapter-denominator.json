@@ -1,0 +1,36 @@
+{
+  "schema_version": "gtkg.a06-cross-adapter-denominator/v1",
+  "inputs": [
+    {"adapter_kind": "native", "path": "fixtures/v03_a01/ledger.rs", "sha256": "sha256:92843743cc59b1b1e7f6b9007fdc0676e5a9dad7801a1411ab336e7dd930e70e"},
+    {"adapter_kind": "scip", "path": "fixtures/v03_a02/valid-scip.json", "sha256": "sha256:6c1aa34317015297620f517829cbbe1105765f28897a2f3f87c5a622d5672fce"},
+    {"adapter_kind": "lsp_snapshot", "path": "fixtures/v03_a03/valid-lsp-snapshot.json", "sha256": "sha256:34f19599535a24ad43b2c8da9fc74a0df76d36885a7fdb7f8e79cc25839f3841"},
+    {"adapter_kind": "codegraph_export", "path": "fixtures/v03_a04/valid-codegraph.json", "sha256": "sha256:66b2bc48661dc6348c2930afc8e368c71a5dd5bdfb580c911c726d4fed70842b"},
+    {"adapter_kind": "graphify_export", "path": "fixtures/v03_a05/strict-graphify-v2.json", "sha256": "sha256:0e2e258daef9182ca2573c561bad47958a56f08a5e5b853ce71bcf9508e4edf0"}
+  ],
+  "adversarial_cases": [
+    "changed_source_bytes",
+    "missing_source_file",
+    "changed_source_span",
+    "inferred_evidence_as_extracted",
+    "wrong_single_known_target_id",
+    "alias_aware_target_reference",
+    "balanced_lsp_symbol_diagnostic_redistribution",
+    "balanced_graphify_confidence_redistribution",
+    "configured_input_budget_over_hard_cap",
+    "cross_adapter_fact_id_collision",
+    "cross_adapter_stable_node_id_collision",
+    "cross_adapter_same_name_conflict"
+  ],
+  "required_result": {
+    "adapter_exact_set": ["native", "scip", "lsp_snapshot", "codegraph_export", "graphify_export"],
+    "false_confirmed": 0,
+    "trust_laundering": 0,
+    "omission_closure_basis_points": 10000,
+    "canonical_write_count": 0,
+    "target_execution_count": 0,
+    "provider_call_count": 0,
+    "network_call_count": 0,
+    "write_count": 0,
+    "collision_winner_count": 0
+  }
+}

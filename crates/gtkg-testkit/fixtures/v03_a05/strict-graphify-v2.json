@@ -1,0 +1,27 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {"id": "main_anchor", "label": "Main anchor", "nodes": ["src_lib_main"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "src/lib.rs"},
+      {"id": "auth_pair", "label": "Authentication pair", "nodes": ["src_lib_helper", "auth_concept"], "relation": "form", "confidence": "AMBIGUOUS", "confidence_score": 0.2, "source_file": "src/lib.rs"}
+    ]
+  },
+  "nodes": [
+    {"id": "src_lib_main", "label": "main", "file_type": "code", "source_file": "src/lib.rs", "source_location": "L1", "community": 0, "norm_label": "main"},
+    {"id": "src_lib_helper", "label": "helper", "file_type": "code", "source_file": "src/lib.rs", "source_location": "L8", "community": 0, "norm_label": "helper"},
+    {"id": "src_module", "label": "module.rs", "file_type": "code", "source_file": "src/module.rs", "source_location": null, "community": 0, "norm_label": "module.rs"},
+    {"id": "auth_concept", "label": "authentication", "file_type": "concept", "source_file": "", "source_location": null, "community": 1, "norm_label": "authentication"}
+  ],
+  "links": [
+    {"source": "src_lib_main", "target": "src_lib_helper", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "src/lib.rs", "source_location": "L3", "weight": 1.0},
+    {"source": "src_lib_main", "target": "auth_concept", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.75, "source_file": "src/lib.rs", "source_location": "L4", "weight": 0.8},
+    {"source": "src_lib_helper", "target": "auth_concept", "relation": "references", "confidence": "AMBIGUOUS", "confidence_score": 0.2, "source_file": "docs/design.md", "source_location": null, "weight": 0.5},
+    {"source": "src_module", "target": "src_lib_main", "relation": "imports", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "src/module.rs", "source_location": null, "weight": 1.0}
+  ],
+  "hyperedges": [
+    {"id": "main_anchor", "label": "Main anchor", "nodes": ["src_lib_main"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "src/lib.rs"},
+    {"id": "auth_pair", "label": "Authentication pair", "nodes": ["src_lib_helper", "auth_concept"], "relation": "form", "confidence": "AMBIGUOUS", "confidence_score": 0.2, "source_file": "src/lib.rs"}
+  ],
+  "built_at_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "gtkg.official-lit-renderer-lock/v1",
+  "renderer_id": "official-a2ui-lit",
+  "renderer_version": "0.10.3",
+  "package_lock_sha256": "sha256:a8dabc09b1bcadd87698cca9b66c45cfbae8a796026f4856b7d9716ead16213b",
+  "packages": [
+    {
+      "name": "@a2ui/lit",
+      "version": "0.10.3",
+      "integrity": "sha512-/kkL0BqJJfC6sn3XNKbo7QDWKE9K06blUVIoLHLU2PZQJalE1KBv/HLTpupBJ94SMhG+NaOUUu8yBUT+ACsm2Q=="
+    },
+    {
+      "name": "@a2ui/web_core",
+      "version": "0.10.6",
+      "integrity": "sha512-kTwir93Fk5eupl4FZ6CkhJDrisR2fnQgEIlDCTp06uzx2PvUhItbq1E+h7hFyeHGTu/NMci9Tqn7Is1IVRpufw=="
+    },
+    {
+      "name": "lit",
+      "version": "3.3.3",
+      "integrity": "sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw=="
+    },
+    {
+      "name": "playwright",
+      "version": "1.63.0-alpha-2026-08-05",
+      "integrity": "sha512-zbGZUK+JYkoDV3cUgfvh2czTBJL34Gmz5gHVI25xiIpvYSR17Q1M7TS8hnwECUe+IkKaeXbKrSyJTyogm2DVWw=="
+    },
+    {
+      "name": "vite",
+      "version": "7.1.3",
+      "integrity": "sha512-OOUi5zjkDxYrKhTV3V7iKsoS37VUM7v40+HuwEmcrsf11Cdx9y3DIr2Px6liIcZFwt3XSRpQvFpL3WVy7ApkGw=="
+    }
+  ],
+  "harness_files": [
+    {
+      "path": "index.html",
+      "sha256": "sha256:a3e2a15264c449714bb38e284505a1e535403675c7958d1344d98e3178e1c7b3"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "sha256:a8dabc09b1bcadd87698cca9b66c45cfbae8a796026f4856b7d9716ead16213b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "sha256:d5e8efe48cfc7a9256229ad3cb8dd6a05f446f499e0037b3b641a351e9dd9640"
+    },
+    {
+      "path": "prepare-stream.mjs",
+      "sha256": "sha256:859ab498874c9ec5cda4fbcd45a9f08d14879066aa328678a14b171762dac7d7"
+    },
+    {
+      "path": "run-browser.mjs",
+      "sha256": "sha256:4c6fcd8d446657335804cc3a594b1f5720b0b789136ee2685296e5a12c732f80"
+    },
+    {
+      "path": "src/harness.js",
+      "sha256": "sha256:5c24ed1e7fecd4ca678edf8af891e44cb9d4ad1fc0c28bb082f8217979ae906b"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "sha256:d89fa22c1eb79e184b63fd011c2951638e9292933ceff8572ad086744a96b004"
+    }
+  ]
+}

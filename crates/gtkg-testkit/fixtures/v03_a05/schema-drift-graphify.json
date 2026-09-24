@@ -1,0 +1,11 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {"id": "src_lib_main", "label": "main", "file_type": "code", "source_file": "src/lib.rs", "source_location": "L1"}
+  ],
+  "edges": [],
+  "hyperedges": [],
+  "built_at_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

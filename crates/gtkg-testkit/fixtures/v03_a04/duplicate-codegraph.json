@@ -1,0 +1,7 @@
+{
+  "nodes": [
+    {"id": 0, "type": "CodeFile", "properties": {"path": "src/main.rs"}},
+    {"id": 0, "type": "Function", "properties": {"name": "main"}}
+  ],
+  "links": []
+}

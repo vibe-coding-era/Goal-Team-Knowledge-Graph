@@ -1,0 +1,33 @@
+{
+  "schema_version": "gtkg.external-corpus-candidates/v1",
+  "status": "candidate_only_not_annotation_locked",
+  "selection_policy": "public repository, declared permissive SPDX license, immutable commit pin, no source bytes imported by this manifest",
+  "candidates": [
+    {"language": "Rust", "repository": "serde-rs/serde", "commit": "a874a1b1bb1cc16cf5ee3b1b7b527af5705742bb", "license": "Apache-2.0"},
+    {"language": "Rust", "repository": "rust-lang/rust-analyzer", "commit": "af4111f0bf85d9d66f4161b007b0081860e0a21c", "license": "Apache-2.0"},
+    {"language": "Python", "repository": "psf/requests", "commit": "5460f467b02e49471c0fd6cfc9ca0adab6351f98", "license": "Apache-2.0"},
+    {"language": "Python", "repository": "pallets/flask", "commit": "d318b683471101618febed18996405ad26462110", "license": "BSD-3-Clause"},
+    {"language": "TypeScript", "repository": "microsoft/TypeScript", "commit": "9a8581c393a38961489cc8409ae4dfbe97fc25ec", "license": "Apache-2.0"},
+    {"language": "TypeScript", "repository": "denoland/deno", "commit": "f7822238cab635a3a19f99f493f675fa81a7f9d8", "license": "MIT"},
+    {"language": "JavaScript", "repository": "eslint/eslint", "commit": "5634542be580750ffb1a5766470f9e9c72719696", "license": "MIT"},
+    {"language": "JavaScript", "repository": "expressjs/express", "commit": "023767fe9872e029271df1418f73401bff20ff40", "license": "MIT"}
+  ],
+  "materialized_checkouts": [
+    {"candidate": "rust-serde", "tree": "35d01a21414c206ac4b7b1d109863e1aaea04c9f", "files": 361},
+    {"candidate": "rust-analyzer", "tree": "d136f868dbdbd637a2f8706ce900d426b283f8f4", "files": 2338},
+    {"candidate": "python-requests", "tree": "8def8d5963592f5b3475340a296c5552b320c583", "files": 130},
+    {"candidate": "python-flask", "tree": "a8da09a58146cd39bc2956bfa5d2f468bf592166", "files": 236},
+    {"candidate": "typescript-typescript", "tree": "f686bac20e61c7907d919685105614230e53985a", "files": 65918},
+    {"candidate": "typescript-deno", "tree": "5e90e80a08fb3cc3a5381df3cecc4cf6603f57ff", "files": 14833},
+    {"candidate": "javascript-eslint", "tree": "e5cf94ddc2e2934c4364db331cfb5fae3ad2696d", "files": 2358},
+    {"candidate": "javascript-express", "tree": "4a68f51231131a45d04378aeca5e3cc4efc13c9e", "files": 213}
+  ],
+  "materialization_root": "docs/reference/v02-external-corpus-candidates",
+  "required_before_external_holdout": [
+    "license and redistribution review for the selected source files",
+    "per-repository source exact-set manifest",
+    "development/holdout split proof with no digest overlap",
+    "two independent human annotations and adjudication",
+    "frozen corpus, annotation and host identity receipts"
+  ]
+}

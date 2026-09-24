@@ -1,0 +1,58 @@
+{
+  "graph.neighbors": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "node_id": "p06-node",
+    "direction": "outgoing",
+    "max_results": 1
+  },
+  "graph.path": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "source_node_id": "p06-source",
+    "target_node_id": "p06-target",
+    "max_depth": 2
+  },
+  "graph.impact": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "node_id": "p06-node",
+    "max_depth": 2,
+    "max_results": 1
+  },
+  "graph.explain": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "node_id": "p06-node",
+    "max_results": 1
+  },
+  "graph.trace": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "entity_id": "p06-node"
+  },
+  "graph.search": {
+    "query_index_path": "query-index",
+    "query_manifest_ref": {"path": "manifests/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json", "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "evidence_index_path": "evidence-index",
+    "evidence_manifest_ref": {"path": "manifests/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json", "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},
+    "expected_identities": {"source_identity": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "graph_identity": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "overlay_identity": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "query": "p06",
+    "max_results": 1
+  }
+}

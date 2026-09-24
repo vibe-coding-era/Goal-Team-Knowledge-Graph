@@ -1,0 +1,22 @@
+[package]
+name = "gtkg-app"
+description = "Single gtkg CLI, MCP stdio, and local Worker adapter"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "gtkg"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+gtkg-core = { path = "../gtkg-core" }
+gtkg-extract = { path = "../gtkg-extract" }
+gtkg-protocol = { path = "../gtkg-protocol" }
+serde_json.workspace = true
+sha2.workspace = true
+
+[lints]
+workspace = true

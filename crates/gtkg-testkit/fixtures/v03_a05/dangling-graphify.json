@@ -1,0 +1,13 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {"id": "src_lib_main", "label": "main", "file_type": "code", "source_file": "src/lib.rs", "source_location": "L1"}
+  ],
+  "links": [
+    {"source": "src_lib_main", "target": "missing_helper", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "src/lib.rs", "source_location": "L3"}
+  ],
+  "hyperedges": [],
+  "built_at_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

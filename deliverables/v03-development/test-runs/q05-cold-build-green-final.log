@@ -1,0 +1,10 @@
+   Compiling gtkg-testkit v0.3.0 (/Users/Rou/dev_projects/GTKG/develops/v0.3/crates/gtkg-testkit)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.70s
+     Running tests/v03_q05_cold_build_budget_successor.rs (target/debug/deps/v03_q05_cold_build_budget_successor-a489229d1939fa55)
+
+running 1 test
+test q05_twenty_cold_10k_source_to_query_index_builds_meet_p95_budget ... Q05_COLD_BUILD_METRICS_JSON={"claim_boundary":"current local reference-host Development cold build; not B04 competitor, install, Release, or business evidence","denominator":10000,"index_bytes_max":10141412,"index_bytes_min":10141412,"manifest_digest_count":1,"omitted_nodes":0,"p50_ms":5230,"p95_budget_ms":180000,"p95_ms":5288,"percentile":"nearest_rank","persisted_node_count_each_run":10000,"sample_count":20,"samples_ms":[5254,5243,5230,5210,5220,5214,5190,5211,5232,5222,5288,5254,5511,5242,5220,5240,5212,5238,5236,5220],"schema_version":"gtkg.q05-cold-build-observations/v1"}
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 107.80s
+

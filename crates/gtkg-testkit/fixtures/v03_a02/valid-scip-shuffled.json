@@ -1,0 +1,57 @@
+{
+  "documents": [
+    {
+      "symbols": [
+        {
+          "kind": "function",
+          "display_name": "helper",
+          "relationships": [],
+          "symbol": "rust cargo demo 0.1.0 lib/helper()."
+        },
+        {
+          "relationships": [
+            {
+              "kind": "reference",
+              "symbol": "rust cargo demo 0.1.0 lib/helper()."
+            }
+          ],
+          "kind": "function",
+          "display_name": "run",
+          "symbol": "rust cargo demo 0.1.0 lib/run()."
+        }
+      ],
+      "occurrences": [
+        {
+          "role": "definition",
+          "symbol": "rust cargo demo 0.1.0 lib/helper().",
+          "range": [4, 3, 4, 9]
+        },
+        {
+          "role": "reference",
+          "symbol": "rust cargo demo 0.1.0 lib/helper().",
+          "range": [1, 4, 1, 10]
+        },
+        {
+          "role": "definition",
+          "symbol": "rust cargo demo 0.1.0 lib/run().",
+          "range": [0, 0, 0, 10]
+        }
+      ],
+      "text_sha256": "sha256:a29dee749e3e4d106065a9f40ebbf78e3cb1c53f89d2d528eb158ef38657ceba",
+      "text": "pub fn run() {\n    helper();\n}\n\nfn helper() {}\n",
+      "language": "rust",
+      "relative_path": "src/lib.rs"
+    }
+  ],
+  "source_snapshot_sha256": "sha256:7a516a066420d92c5b10da8f76f5e8eccf1dd1250d425879dab88f3af4654a20",
+  "tool": {
+    "license": "Apache-2.0",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "version": "0.3.3",
+    "name": "scip-rust"
+  },
+  "schema": {
+    "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "version": "scip/0.4-json"
+  }
+}

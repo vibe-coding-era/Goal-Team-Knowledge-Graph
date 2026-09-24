@@ -1,0 +1,78 @@
+{
+  "schema_version": "gtkg.benchmark-environment/v3",
+  "environment_id": "v03-b00-reference-environment-r1",
+  "captured_at": "2026-08-30T12:41:20Z",
+  "execution_state": "not_run",
+  "reference_host": {
+    "state": "frozen_local_readback",
+    "hardware_model": "MacBook Air (Mac16,12)",
+    "architecture": "arm64",
+    "os_name": "macOS",
+    "os_version": "26.6.2",
+    "cpu": "Apple M4 (10 cores)",
+    "memory_bytes": "34359738368",
+    "readback_commands": [
+      "uname -m",
+      "sw_vers -productName",
+      "sw_vers -productVersion",
+      "sysctl -n machdep.cpu.brand_string",
+      "sysctl -n hw.memsize",
+      "system_profiler SPHardwareDataType -json"
+    ],
+    "sensitive_hardware_identifiers_recorded": false
+  },
+  "toolchain": {
+    "state": "frozen_local_readback",
+    "rustc": "1.96.0 (ac68faa20 2026-05-25)",
+    "cargo": "1.96.0 (30a34c682 2026-05-25)",
+    "target": "aarch64-apple-darwin"
+  },
+  "reference_browser": {
+    "state": "not_available",
+    "browser_id": "not_available",
+    "version": "not_available",
+    "reason": "B00 did not select or execute a reference browser; selection belongs to the affected successor."
+  },
+  "agent_runtime": {
+    "model_state": "blocked",
+    "model_id": "not_available",
+    "reasoning_state": "blocked",
+    "reasoning_effort": "not_available",
+    "grader_state": "blocked",
+    "grader_id": "not_available",
+    "provider_price_state": "not_available",
+    "price_date": "not_available",
+    "currency": "USD",
+    "base_tools_policy_state": "frozen",
+    "base_tools_policy": "read-only repository/file inspection plus one system-specific graph query interface; no source mutation"
+  },
+  "agent_budget_policy": {
+    "state": "frozen_policy_model_cost_blocked",
+    "max_turns": 20,
+    "max_tool_calls": 100,
+    "max_input_tokens": 120000,
+    "max_output_tokens": 20000,
+    "wall_time_seconds": 1800,
+    "max_cost_usd": "not_available",
+    "cost_behavior": "blocked until exact model and current price identity are frozen"
+  },
+  "performance_budgets": {
+    "state": "frozen_for_reference_host",
+    "cold_build_p95_ms": 180000,
+    "first_query_p95_ms": 300000,
+    "incremental_update_p95_ms": 10000,
+    "structural_query_p50_ms": 100,
+    "structural_query_p95_ms": 500,
+    "graph_search_p50_ms": 150,
+    "graph_search_p95_ms": 750,
+    "ordinary_query_bytes_read_p95_policy": "min(total_index_bytes * 0.05, 67108864)",
+    "ordinary_query_full_graph_read_count": 0,
+    "peak_rss_bytes": 1610612736,
+    "explorer_first_meaningful_content_p95_ms": 2000
+  },
+  "non_claims": [
+    "Host readback does not prove competitor compatibility or performance.",
+    "Browser/model/grader/provider pricing are not selected and remain not_available or blocked.",
+    "No benchmark process was invoked."
+  ]
+}

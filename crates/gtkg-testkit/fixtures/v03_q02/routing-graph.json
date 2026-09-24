@@ -1,0 +1,19 @@
+{
+  "nodes": ["node-client", "node-store", "服务:认证"],
+  "edges": [
+    {
+      "edge_id": "edge-auth-store",
+      "source_node_id": "服务:认证",
+      "target_node_id": "node-store",
+      "resolution_state": "resolved",
+      "evidence_ref": "evidence:auth-store"
+    },
+    {
+      "edge_id": "edge-client-auth",
+      "source_node_id": "node-client",
+      "target_node_id": "服务:认证",
+      "resolution_state": "ambiguous",
+      "evidence_ref": "evidence:client-auth"
+    }
+  ]
+}

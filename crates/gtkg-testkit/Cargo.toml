@@ -1,0 +1,31 @@
+[package]
+name = "gtkg-testkit"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish = false
+
+[dependencies]
+gtkg-app = { path = "../gtkg-app" }
+gtkg-core = { path = "../gtkg-core", features = ["test-faults"] }
+gtkg-extract = { path = "../gtkg-extract" }
+gtkg-protocol = { path = "../gtkg-protocol" }
+hex.workspace = true
+lopdf.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+tempfile.workspace = true
+zip.workspace = true
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+# Contract fixtures use explicit panic assertions; production crates still deny unwrap.
+unwrap_used = "allow"
+default_constructed_unit_structs = "allow"
+cloned_ref_to_slice_refs = "allow"
+result_large_err = "allow"

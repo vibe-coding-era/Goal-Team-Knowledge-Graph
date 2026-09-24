@@ -1,0 +1,80 @@
+{
+  "schema_version": "gtkg.q05-cold-metric-boundary-fact/v1",
+  "task": "Q05",
+  "state": "passed_reclassified_without_rerun",
+  "measurement": {
+    "metric": "deterministic LexicalDocument + adjacency -> query-index build p50/p95",
+    "timed_input": "deterministic LexicalDocument corpus plus deterministic adjacency input",
+    "timed_output": "ordinary-file query-index artifacts",
+    "timed_operations": [
+      "deterministic LexicalDocument fixture generation",
+      "lexical shard construction",
+      "deterministic adjacency routing-index construction",
+      "ordinary-file query-index publication"
+    ],
+    "excluded_product_stages": [
+      "source discovery, ordinary source reads, and source parsing",
+      "adapter import and normalization",
+      "graph and overlay construction",
+      "Q06 full and incremental pipeline equivalence",
+      "U06 install-to-first-evidence-query runtime"
+    ],
+    "denominator_documents": 10000,
+    "sample_count": 20,
+    "percentile_algorithm": "nearest_rank",
+    "p50_ms": 5230,
+    "p95_ms": 5288,
+    "p95_budget_ms": 180000,
+    "samples_ms": [
+      5254,
+      5243,
+      5230,
+      5210,
+      5220,
+      5214,
+      5190,
+      5211,
+      5232,
+      5222,
+      5288,
+      5254,
+      5511,
+      5242,
+      5220,
+      5240,
+      5212,
+      5238,
+      5236,
+      5220
+    ],
+    "persisted_nodes_each_sample": 10000,
+    "omitted_nodes": 0,
+    "manifest_digest_count": 1,
+    "index_bytes_min": 10141412,
+    "index_bytes_max": 10141412
+  },
+  "provenance": {
+    "mode": "reclassified_without_rerun",
+    "reclassified_without_rerun": true,
+    "rerun_performed": false,
+    "samples_reused_exactly": true,
+    "source_run": {
+      "path": "deliverables/v03-development/test-runs/q05-cold-build-green-final.log",
+      "sha256": "c0864a10fcec1e304127fd8c8432f9616b52e265eb58f44eab215756952df1d1",
+      "bytes": 1077,
+      "metrics_marker": "Q05_COLD_BUILD_METRICS_JSON",
+      "sample_count": 20,
+      "predecessor_case_id": "TC-V03-Q05-COLD-BUILD-r2",
+      "predecessor_test_sha256": "c63f54195f72b7f13c5a7d940cd6f3aa5fea7bf6bc39d82039524f451c48378d"
+    },
+    "reclassification_reason": "independent review found that the retained label exceeded the actual timed boundary; the numerical observations remain current and unchanged"
+  },
+  "downstream": {
+    "full_pipeline": "blocked_by_Q06/U06",
+    "query_pipeline_equivalence": "blocked_by_Q06",
+    "install_to_first_evidence_query": "blocked_by_U06",
+    "B04": "not_run_not_promoted",
+    "Release": "not_run_not_promoted"
+  },
+  "claim_boundary": "Q05 local Development observation for the exact deterministic input-to-index build path only; it is not complete pipeline, B04, install, Release, external runtime, or business evidence"
+}

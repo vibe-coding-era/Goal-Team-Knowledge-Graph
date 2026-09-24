@@ -1,0 +1,38 @@
+# Rust build output
+target/
+
+# Local runtime/test output
+output/
+.playwright-cli/
+
+# OS noise
+.DS_Store
+
+# Temporary browser verification artifacts
+deliverables/*.tmp-*.verification-failure.png
+.gtkg/
+artifacts/
+/develops/
+
+# H05 official A2UI renderer local dependencies/build output
+crates/gtkg-testkit/browser/h05-a2ui-lit/node_modules/
+crates/gtkg-testkit/browser/h05-a2ui-lit/dist/
+
+# Generated knowledge-quality evidence: multi-GB raw model responses, retrieval
+# run records and runtime logs. These are reproduced by the benchmark harness
+# rather than stored in Git; the full pre-V0.4-commit worktree (including these
+# paths) is preserved as an external tarball with a recorded SHA-256.
+deliverables/v04-benchmark/analysis-gold-private/
+deliverables/v04-benchmark/retrieval-private/
+deliverables/v04-development/runtime/
+__pycache__/
+*.pyc
+
+# Private local agents, datasets, credentials and generated evidence
+/.workbuddy/
+/deliverables/
+/docs/reference/okf-v0.2-reference-W4G1/
+/docs/reference/v02-external-corpus-candidates/
+.env
+.env.*
+!.env.example

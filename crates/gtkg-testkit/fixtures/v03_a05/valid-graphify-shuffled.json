@@ -1,0 +1,21 @@
+{
+  "built_at_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "hyperedges": [
+    {"source_file": "src/lib.rs", "confidence_score": 0.75, "confidence": "INFERRED", "relation": "participate_in", "nodes": ["src_lib_main", "src_lib_helper", "auth_concept"], "label": "Authentication flow", "id": "auth_flow"}
+  ],
+  "links": [
+    {"weight": 1.0, "source_location": null, "source_file": "src/module.rs", "confidence_score": 1.0, "confidence": "EXTRACTED", "relation": "imports", "target": "src_lib_main", "source": "src_module"},
+    {"weight": 0.5, "source_location": null, "source_file": "docs/design.md", "confidence_score": 0.2, "confidence": "AMBIGUOUS", "relation": "references", "target": "auth_concept", "source": "src_lib_helper"},
+    {"weight": 0.8, "source_location": "L4", "source_file": "src/lib.rs", "confidence_score": 0.75, "confidence": "INFERRED", "relation": "implements", "target": "auth_concept", "source": "src_lib_main"},
+    {"weight": 1.0, "source_location": "L3", "source_file": "src/lib.rs", "confidence_score": 1.0, "confidence": "EXTRACTED", "relation": "calls", "target": "src_lib_helper", "source": "src_lib_main"}
+  ],
+  "nodes": [
+    {"norm_label": "authentication", "community": 1, "source_location": null, "source_file": "", "file_type": "concept", "label": "authentication", "id": "auth_concept"},
+    {"norm_label": "module.rs", "community": 0, "source_location": null, "source_file": "src/module.rs", "file_type": "code", "label": "module.rs", "id": "src_module"},
+    {"norm_label": "helper", "community": 0, "source_location": "L8", "source_file": "src/lib.rs", "file_type": "code", "label": "helper", "id": "src_lib_helper"},
+    {"norm_label": "main", "community": 0, "source_location": "L1", "source_file": "src/lib.rs", "file_type": "code", "label": "main", "id": "src_lib_main"}
+  ],
+  "graph": {"hyperedges": []},
+  "multigraph": false,
+  "directed": false
+}

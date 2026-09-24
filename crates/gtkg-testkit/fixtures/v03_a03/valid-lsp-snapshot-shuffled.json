@@ -1,0 +1,65 @@
+{
+  "documents": [
+    {
+      "diagnostics": [
+        {
+          "range": [1, 12, 1, 22],
+          "message": "non-ASCII literal retained in frozen evidence",
+          "code": "non_ascii_literal",
+          "severity": "information",
+          "diagnostic_id": "diag-non-ascii"
+        }
+      ],
+      "symbols": [
+        {
+          "references": [],
+          "selection_range": [4, 3, 4, 9],
+          "range": [4, 0, 4, 27],
+          "kind": "function",
+          "name": "helper",
+          "symbol_id": "sym-helper"
+        },
+        {
+          "references": [
+            {
+              "target_symbol_ids": ["sym-helper"],
+              "target_reference": "helper",
+              "range": [1, 4, 1, 10],
+              "kind": "call"
+            }
+          ],
+          "selection_range": [0, 3, 0, 7],
+          "range": [0, 0, 2, 1],
+          "kind": "function",
+          "name": "main",
+          "symbol_id": "sym-main"
+        }
+      ],
+      "text_sha256": "sha256:95646d876c0f9b302ec8ed7f6528991db6a72b9742c5d6a75cd60bac7cea157a",
+      "text": "fn main() {\n    helper(\"中文🙂\");\n}\n\nfn helper(message: &str) {}\n",
+      "language_id": "rust",
+      "relative_path": "src/main.rs"
+    }
+  ],
+  "capture": {
+    "json_rpc_response_count": 0,
+    "json_rpc_request_count": 0,
+    "lsp_server_invocation_count": 0,
+    "deterministic": true,
+    "mode": "frozen_file"
+  },
+  "source_snapshot_sha256": "sha256:c45839fdd713b1acb620523e6c9d80ac07fc271113cfad5eb76ef328045e6ddc",
+  "producer": {
+    "config_sha256": "sha256:9569022226845a35bce92d52c125556785d8a1d67f6e78b900bb3dc02bac9228",
+    "license": "MIT OR Apache-2.0",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "version": "2026-08-24",
+    "name": "rust-analyzer"
+  },
+  "position_encoding": "utf-8",
+  "protocol_version": "3.17",
+  "schema": {
+    "sha256": "sha256:97a36add17cb89ec94b92222e8c4b1673dbb5bd5443644f1f346140ad4dd19c1",
+    "version": "gtkg.lsp-snapshot/v1"
+  }
+}

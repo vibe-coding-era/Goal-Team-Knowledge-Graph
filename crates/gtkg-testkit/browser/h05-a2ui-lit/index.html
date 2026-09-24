@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTKG H05 Official A2UI Lit Renderer</title>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #172033; background: #f6f8fc; }
+      body { margin: 0; padding: 24px; }
+      #status { margin-bottom: 12px; color: #176b5b; }
+      a2ui-surface { display: block; min-height: 600px; background: white; border: 1px solid #d7dce8; border-radius: 14px; padding: 20px; }
+    </style>
+    <script src="./stream.js"></script>
+    <script type="module" src="/src/harness.js"></script>
+  </head>
+  <body>
+    <div id="status">Loading official A2UI renderer…</div>
+    <a2ui-surface id="surface"></a2ui-surface>
+  </body>
+</html>

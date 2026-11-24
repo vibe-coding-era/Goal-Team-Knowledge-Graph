@@ -7,6 +7,9 @@ use gtkg_protocol::v2::{
 use gtkg_protocol::v03::discovery_profiles_v03;
 use serde_json::{Value, json};
 
+#[path = "support/v03_graph_schema_branches.rs"]
+mod schema_branches;
+
 const GRAPH_OPERATIONS: [V2OperationId; 6] = [
     V2OperationId::GraphNeighbors,
     V2OperationId::GraphPath,
@@ -76,7 +79,13 @@ fn operation_fields(
     match operation {
         V2OperationId::GraphNeighbors => (
             &["node_id"],
-            &["node_id", "direction", "max_results", "continuation"],
+            &[
+                "node_id",
+                "direction",
+                "max_results",
+                "continuation",
+                "previous_page",
+            ],
         ),
         V2OperationId::GraphPath => (
             &["source_node_id", "target_node_id"],
@@ -84,9 +93,18 @@ fn operation_fields(
         ),
         V2OperationId::GraphImpact => (
             &["node_id"],
-            &["node_id", "max_depth", "max_results", "continuation"],
+            &[
+                "node_id",
+                "max_depth",
+                "max_results",
+                "continuation",
+                "previous_page",
+            ],
         ),
-        V2OperationId::GraphExplain => (&["node_id"], &["node_id", "max_results", "continuation"]),
+        V2OperationId::GraphExplain => (
+            &["node_id"],
+            &["node_id", "max_results", "continuation", "previous_page"],
+        ),
         V2OperationId::GraphTrace => (&["entity_id"], &["entity_id"]),
         V2OperationId::GraphSearch => (&["query"], &["query", "max_results", "continuation"]),
         _ => unreachable!(),
@@ -97,7 +115,7 @@ fn operation_fields(
 fn q04_six_graph_operations_disclose_closed_constructible_payload_schemas() {
     for operation in GRAPH_OPERATIONS {
         let envelope = v2_operation_request_schema(operation);
-        let schema = &envelope["properties"]["payload"];
+        let schema = schema_branches::legacy_payload(operation, &envelope);
         assert_eq!(schema["type"], "object", "{}", operation.as_str());
         assert_eq!(
             schema["additionalProperties"],

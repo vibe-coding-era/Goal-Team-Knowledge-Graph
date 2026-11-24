@@ -1,5 +1,41 @@
 include!("v03_q04_file_graph_operations.rs");
 
+const AUTHORITY_FAULT_POINT: &str = "v03_q04_authority_after_publish_before_manifest";
+
+struct AuthorityFaultChild(std::process::Child);
+
+impl Drop for AuthorityFaultChild {
+    fn drop(&mut self) {
+        // An assertion failure must not leave a child parked at the fault hook.
+        let _ = self.0.kill();
+        let _ = self.0.wait();
+    }
+}
+
+fn wait_for_authority_fault(child: &mut std::process::Child, ready: &Path) {
+    let started = std::time::Instant::now();
+    // Reaching this hook first durably publishes every evidence record. This is
+    // a bounded readiness wait, not a performance gate for those filesystem I/Os.
+    let timeout = std::time::Duration::from_secs(30);
+    loop {
+        if let Some(status) = child.try_wait().expect("poll authority fault child") {
+            panic!("authority child exited before {AUTHORITY_FAULT_POINT}: {status}");
+        }
+        match fs::read(ready) {
+            Ok(marker) if marker == AUTHORITY_FAULT_POINT.as_bytes() => return,
+            Ok(_) => {}
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => panic!("cannot read authority fault marker {}: {error}", ready.display()),
+        }
+        assert!(
+            started.elapsed() < timeout,
+            "authority child did not reach the frozen fault point {AUTHORITY_FAULT_POINT} within {timeout:?}; marker={}",
+            ready.display()
+        );
+        std::thread::sleep(std::time::Duration::from_millis(20));
+    }
+}
+
 fn recovery_entities(fixture: &Fixture) -> Vec<GraphQueryEntityV1> {
     let manifest: FileGraphEvidenceManifestV1 = serde_json::from_slice(
         &fs::read(
@@ -72,28 +108,17 @@ fn q04_crash_after_private_authority_before_manifest_recovers_deterministically(
     )
     .unwrap();
     let ready = fixture.workspace.path().join("authority-crash-ready");
-    let mut child = std::process::Command::new(std::env::current_exe().unwrap())
+    let child = std::process::Command::new(std::env::current_exe().unwrap())
         .args(["--exact", "q04_authority_crash_child", "--nocapture"])
         .env("Q04_AUTHORITY_CRASH_INPUT", &input)
-        .env(
-            "GTKG_TEST_FAULT_POINT",
-            "v03_q04_authority_after_publish_before_manifest",
-        )
+        .env("GTKG_TEST_FAULT_POINT", AUTHORITY_FAULT_POINT)
         .env("GTKG_TEST_FAULT_READY", &ready)
         .spawn()
         .unwrap();
-    for _ in 0..100 {
-        if ready.exists() {
-            break;
-        }
-        std::thread::sleep(std::time::Duration::from_millis(20));
-    }
-    assert!(
-        ready.exists(),
-        "authority child did not reach the frozen fault point"
-    );
-    child.kill().unwrap();
-    assert!(!child.wait().unwrap().success());
+    let mut child = AuthorityFaultChild(child);
+    wait_for_authority_fault(&mut child.0, &ready);
+    child.0.kill().unwrap();
+    assert!(!child.0.wait().unwrap().success());
     assert!(evidence_root.join("control").exists());
     assert!(!evidence_root.join("manifests").exists());
 

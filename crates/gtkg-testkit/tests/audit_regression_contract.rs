@@ -257,20 +257,10 @@ fn bundle_verify_checks_every_canonical_okf_resource_and_manifest_digest_closure
         );
     }
 
-    let workspace_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .parent()
-        .and_then(Path::parent)
-        .expect("workspace root")
-        .to_path_buf();
-    for relative in [
-        "deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md",
-        "deliverables/goal-team-knowledge-graph/versions/V0.1/ARCHITECTURE.md",
+    check_okf_fixtures(&[
         "templates/design-deliverables/versions/V0.1/architecture-template.md",
         "templates/design-deliverables/versions/V0.1/prd-template.md",
-    ] {
-        parse_okf(&fs::read_to_string(workspace_root.join(relative)).expect("conformance fixture"))
-            .unwrap_or_else(|error| panic!("{relative} must conform: {error}"));
-    }
+    ]);
 
     let broken_okf = fixture.root.join("broken-okf");
     copy_tree(&built.bundle_path, &broken_okf);
@@ -324,6 +314,27 @@ fn bundle_verify_checks_every_canonical_okf_resource_and_manifest_digest_closure
 }
 
 #[test]
+fn original_v01_design_documents_conform_to_okf() {
+    check_okf_fixtures(&[
+        "deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md",
+        "deliverables/goal-team-knowledge-graph/versions/V0.1/ARCHITECTURE.md",
+    ]);
+}
+
+fn check_okf_fixtures(paths: &[&str]) {
+    let workspace_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .and_then(Path::parent)
+        .expect("workspace root")
+        .to_path_buf();
+    for relative in paths {
+        let source = fs::read_to_string(workspace_root.join(relative))
+            .unwrap_or_else(|error| panic!("read conformance fixture {relative}: {error}"));
+        parse_okf(&source).unwrap_or_else(|error| panic!("{relative} must conform: {error}"));
+    }
+}
+
+#[test]
 fn no_database_gate_covers_dependency_file_magic_source_and_daemon_families() {
     let dirty = tempdir().expect("dirty fixture");
     fs::write(
@@ -360,6 +371,21 @@ fn no_database_gate_covers_dependency_file_magic_source_and_daemon_families() {
     assert!(rules.contains("forbidden_extension") || rules.contains("forbidden_magic"));
     assert!(rules.contains("forbidden_source_api"));
     assert!(rules.contains("forbidden_daemon"));
+
+    let scoped = tempdir().unwrap();
+    let scoped_root = scoped.path();
+    fs::create_dir_all(scoped_root.join("crates/gtkg-core/src")).unwrap();
+    fs::write(scoped_root.join("Cargo.toml"), "[workspace]\n").unwrap();
+    let evidence = scoped_root.join(".goal-teams/evidence");
+    fs::create_dir_all(&evidence).unwrap();
+    let sample = "endpoint = 'postgresql://localhost/example'\n";
+    fs::write(evidence.join("integration.py"), sample).unwrap();
+    let product = scoped_root.join("crates/gtkg-core/src/product.py");
+    fs::write(&product, sample).unwrap();
+    let scoped_findings = scan_no_database(scoped_root).unwrap();
+    assert_eq!(scoped_findings.len(), 1);
+    assert_eq!(scoped_findings[0].path, product);
+    assert_eq!(scan_no_database(&evidence).unwrap().len(), 1);
 
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let production_root = manifest_dir

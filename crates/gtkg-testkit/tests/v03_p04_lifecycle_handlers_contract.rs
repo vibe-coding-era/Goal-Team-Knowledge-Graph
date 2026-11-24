@@ -32,9 +32,24 @@ fn p04_promotes_exactly_nine_closed_handlers_and_completes_availability_only() {
             v2_operation_definition(operation).unwrap().availability,
             OperationAvailabilityV2::Implemented
         );
-        let payload = &v2_operation_request_schema(operation)["properties"]["payload"];
-        assert_eq!(payload["type"], "object");
-        assert_eq!(payload["additionalProperties"], false);
+        let request_schema = v2_operation_request_schema(operation);
+        let payload = &request_schema["properties"]["payload"];
+        let branches = if gtkg_protocol::v04::accepts_knowledge_quality_payload(operation) {
+            let branches = payload["oneOf"].as_array().unwrap();
+            assert_eq!(branches.len(), 2);
+            assert!(branches[0]["properties"].get("payload_revision").is_none());
+            assert_eq!(
+                branches[1]["properties"]["payload_revision"]["const"],
+                gtkg_protocol::v04::PAYLOAD_REVISION
+            );
+            branches.as_slice()
+        } else {
+            std::slice::from_ref(payload)
+        };
+        for branch in branches {
+            assert_eq!(branch["type"], "object");
+            assert_eq!(branch["additionalProperties"], false);
+        }
     }
     assert_eq!(
         V2_PUBLIC_OPERATIONS

@@ -99,6 +99,8 @@ fn cli_call(binary: &Path, root: &Path, request: &OperationRequestV2) -> Value {
         .args([
             "v2-op",
             request.operation_id.as_str(),
+            "--profile",
+            "all",
             "--request",
             "-",
             "--output",
@@ -130,7 +132,15 @@ struct LineChild {
 impl LineChild {
     fn spawn(binary: &Path, root: &Path) -> Self {
         let mut child = Command::new(binary)
-            .args(["mcp", "serve", "--protocol", "v2", "--stdio"])
+            .args([
+                "mcp",
+                "serve",
+                "--protocol",
+                "v2",
+                "--profile",
+                "all",
+                "--stdio",
+            ])
             .current_dir(root)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())

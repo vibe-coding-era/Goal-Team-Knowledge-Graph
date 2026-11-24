@@ -1329,6 +1329,53 @@ pub struct OperationRequestV2 {
 }
 
 impl OperationRequestV2 {
+    /// Resolve the envelope before checking profile membership or invoking a handler.
+    #[allow(clippy::result_large_err)]
+    pub fn resolve_operation(&self) -> Result<V2OperationId, V2ErrorEnvelope> {
+        if self.request_id.is_empty() {
+            return Err(V2ErrorEnvelope::new(
+                self,
+                V2ErrorCode::InvalidRequest,
+                "request-schema",
+                "request_id must not be empty",
+                "provide a non-empty request_id that can bind the response to this exact request",
+            ));
+        }
+        if self.protocol_version != PROTOCOL_VERSION_V2 {
+            return Err(V2ErrorEnvelope::new(
+                self,
+                V2ErrorCode::ProtocolVersionMismatch,
+                "protocol",
+                format!(
+                    "unsupported protocol version {}; expected {PROTOCOL_VERSION_V2}",
+                    self.protocol_version
+                ),
+                "select gtkg.protocol/v1 for legacy operations or send the exact v2 protocol version",
+            ));
+        }
+        if is_v1_only_operation_for_v2(&self.operation_id) {
+            return Err(V2ErrorEnvelope::new(
+                self,
+                V2ErrorCode::OperationVersionUnsupported,
+                "version-routing",
+                format!(
+                    "operation {} is v1-only and is unsupported by gtkg.protocol/v2",
+                    self.operation_id
+                ),
+                "retry this exact operation with protocol_version=gtkg.protocol/v1",
+            ));
+        }
+        V2OperationId::parse(&self.operation_id).ok_or_else(|| {
+            V2ErrorEnvelope::new(
+                self,
+                V2ErrorCode::OperationNotImplemented,
+                "dispatch",
+                "operation is absent from the closed v2 public registry",
+                "use v2 discovery to select one of the published operation identifiers",
+            )
+        })
+    }
+
     pub fn new(
         operation_id: impl Into<String>,
         request_id: impl Into<String>,

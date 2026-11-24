@@ -10,6 +10,7 @@ use gtkg_core::{CallContext, Dispatcher, EffectPolicy, TransportKind};
 use gtkg_protocol::v2::{
     CallabilityV2, OperationAvailabilityV2, OperationRequestV2, V2_PUBLIC_OPERATIONS, V2ErrorCode,
     V2OperationId, v2_operation_definition, v2_operation_request_schema,
+    validate_v2_operation_payload,
 };
 use gtkg_protocol::{
     NodeDescriptor, NodeTransport, OperationId, OperationRequest, ShardResult, WorkUnit,
@@ -67,6 +68,48 @@ fn p05_promotes_exactly_18_domain_handlers_with_closed_payload_schemas() {
         let schema = v2_operation_request_schema(operation_id);
         let payload = &schema["properties"]["payload"];
         assert_eq!(schema["additionalProperties"], false);
+        let payload = if operation_id == V2OperationId::DeliverableDerive {
+            let branches = payload["oneOf"]
+                .as_array()
+                .expect("two explicit payload revisions");
+            assert_eq!(branches.len(), 2);
+            assert!(branches[0]["properties"].get("payload_revision").is_none());
+            let current = &branches[1];
+            assert_eq!(current["type"], "object");
+            assert_eq!(current["additionalProperties"], false);
+            assert_eq!(
+                current["properties"]["payload_revision"]["const"],
+                gtkg_protocol::v04::PAYLOAD_REVISION
+            );
+            let fields = ["artifact_ref", "payload_revision", "workspace_root"]
+                .into_iter()
+                .collect::<BTreeSet<_>>();
+            assert_eq!(string_set(&current["required"]), fields);
+            assert_eq!(
+                current["properties"]
+                    .as_object()
+                    .unwrap()
+                    .keys()
+                    .map(String::as_str)
+                    .collect::<BTreeSet<_>>(),
+                fields
+            );
+            let mut request = json!({
+                "payload_revision": gtkg_protocol::v04::PAYLOAD_REVISION,
+                "workspace_root": ".",
+                "artifact_ref": {"path": ".gtkg/qk/views.json", "sha256": digest('a')}
+            });
+            assert!(validate_v2_operation_payload(operation_id, &request).is_ok());
+            request["unexpected"] = json!(true);
+            assert!(validate_v2_operation_payload(operation_id, &request).is_err());
+            request.as_object_mut().unwrap().remove("unexpected");
+            request["payload_revision"] = json!("unsupported-revision");
+            assert!(validate_v2_operation_payload(operation_id, &request).is_err());
+            &branches[0]
+        } else {
+            assert!(payload.get("oneOf").is_none());
+            payload
+        };
         assert_eq!(payload["type"], "object");
         assert_eq!(payload["additionalProperties"], false);
         assert_eq!(
@@ -89,7 +132,10 @@ fn p05_promotes_exactly_18_domain_handlers_with_closed_payload_schemas() {
                 .collect::<BTreeSet<_>>()
         );
     }
+}
 
+#[test]
+fn p05_historical_stage_keeps_28_handlers_and_analysis_unimplemented() {
     let implemented = V2_PUBLIC_OPERATIONS
         .iter()
         .filter(|definition| definition.availability == OperationAvailabilityV2::Implemented)
@@ -237,7 +283,10 @@ fn p05_positive_reads_and_local_receipts_match_v1_domain_semantics() {
         .expect("deliverable.derive writes a real immutable local draft receipt");
     assert_eq!(deliverable.result["status"], "draft");
     assert_eq!(deliverable.result["verified"], false);
-    let draft_path = PathBuf::from(deliverable.result["draft_ref"]["path"].as_str().unwrap());
+    let draft_path = fixture
+        .root
+        .path()
+        .join(deliverable.result["draft_ref"]["path"].as_str().unwrap());
     assert!(draft_path.is_file());
     assert_eq!(
         sha256(&fs::read(&draft_path).unwrap()),

@@ -182,6 +182,13 @@ fn p06_r2_all_46_reach_real_handlers_with_cli_mcp_and_effect_parity() {
 fn payloads(root: &Path) -> BTreeMap<String, Value> {
     let mut value: Value =
         serde_json::from_str(include_str!("../fixtures/v03_p06/transport-payloads.json")).unwrap();
+    // Keep the original fixture artifact intact; the public graph handlers now
+    // consume the pinned file-index contract disclosed by the r6 fixture.
+    let graph: BTreeMap<String, Value> = serde_json::from_str(include_str!(
+        "../fixtures/v03_p06/transport-graph-payloads-current-r6.json"
+    ))
+    .unwrap();
+    value.as_object_mut().unwrap().extend(graph);
     replace_root(&mut value, &root.to_string_lossy());
     serde_json::from_value(value).unwrap()
 }
@@ -224,7 +231,16 @@ fn cli_call(binary: &Path, root: &Path, request: &OperationRequestV2) -> Value {
 
 fn cli_call_value(binary: &Path, root: &Path, operation: &str, request: &Value) -> Value {
     let mut child = Command::new(binary)
-        .args(["v2-op", operation, "--request", "-", "--output", "json"])
+        .args([
+            "v2-op",
+            operation,
+            "--profile",
+            "all",
+            "--request",
+            "-",
+            "--output",
+            "json",
+        ])
         .current_dir(root)
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())

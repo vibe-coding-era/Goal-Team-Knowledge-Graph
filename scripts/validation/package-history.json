@@ -1,0 +1,90 @@
+[
+  {
+    "target": "v03_i01_identity_join_successor_r2",
+    "test": "i01_r2_reads_actual_provenance_index_and_installed_current_binary_without_writes",
+    "class": "runner",
+    "stage": "V0.3 I01",
+    "reason": "I01 r2 的来源核对需绑定实际 release 二进制与摘要；由专用运行器执行。",
+    "successor": "scripts/v03/run-i01-identity-join-r2.sh"
+  },
+  {
+    "target": "v03_i01_identity_join_successor_r2",
+    "test": "i01_r2_rejects_actual_index_binary_receipt_manifest_profile_and_provenance_drift",
+    "class": "runner",
+    "stage": "V0.3 I01",
+    "reason": "I01 r2 的来源核对需绑定实际 release 二进制与摘要；由专用运行器执行。",
+    "successor": "scripts/v03/run-i01-identity-join-r2.sh"
+  },
+  {
+    "target": "v03_u01_installer_contract",
+    "test": "u01_dry_run_fresh_upgrade_restricted_rollback_and_exact_uninstall",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u01_installer_contract",
+    "test": "u01_rejects_symlink_hardlink_cas_and_unmanaged_upgrade_destination",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u01_installer_mode_successor_r3",
+    "test": "u01_rejects_nonprivate_state_manifest_and_state_directory_modes",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u01_installer_security_successor_r2",
+    "test": "u01_rejects_a_symlinked_state_record_before_any_managed_removal",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u01_installer_security_successor_r2",
+    "test": "u01_allows_rollback_only_from_the_state_recorded_upgrade_predecessor",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u01_installer_security_successor_r2",
+    "test": "u01_rejects_managed_file_drift_and_receipt_manipulation_before_uninstall",
+    "class": "historical",
+    "stage": "V0.3 U01",
+    "reason": "早期 U01 使用无隔离 capability 的直接安装接口。后续版本强制要求 capability，当前对同一输入返回 IsolationRequired。",
+    "successor": "crates/gtkg-testkit/tests/v03_u01_fixed_temp_lifecycle_successor_r7.rs"
+  },
+  {
+    "target": "v03_u03_explorer_contract",
+    "test": "u03_static_explorer_consumes_q04_responses_and_preserves_evidence_boundaries",
+    "class": "historical",
+    "stage": "V0.3 U03",
+    "reason": "原始 U03 用例使用旧的直接浏览器输入，当前只接受经校验的 manifest 及其 readback。",
+    "successor": "crates/gtkg-testkit/tests/v03_u03_explorer_successor_r3.rs"
+  },
+  {
+    "target": "v03_u06_local_e2e",
+    "test": "u06_isolated_local_install_query_explorer_uninstall_journey",
+    "class": "historical",
+    "stage": "V0.3 U06",
+    "reason": "提供真实 release 二进制和旧测试文件的正确摘要后，旧 U06 的图证据参数仍被拒收。后继 r2 已使用受支持的绑定。",
+    "successor": "scripts/v03/run-u06-local-e2e-r1.sh"
+  },
+  {
+    "target": "v03_u06_local_e2e_successor_r2",
+    "test": "u06_r2_fresh_capability_install_build_query_explorer_uninstall",
+    "class": "runner",
+    "stage": "V0.3 U06",
+    "reason": "U06 r2 必须接收本次真实二进制及测试源文件的摘要，并在临时根目录执行安装、查询和卸载。",
+    "successor": "scripts/v03/run-u06-local-e2e-r1.sh"
+  }
+]

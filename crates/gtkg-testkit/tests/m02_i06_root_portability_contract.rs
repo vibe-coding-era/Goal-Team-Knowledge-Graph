@@ -24,10 +24,12 @@ fn has_absolute_string(value: &Value) -> bool {
 
 #[test]
 fn unsafe_overlap_and_symlink_roots_reject_before_cargo_or_browser() {
-    let workspace = root();
-    let helper = workspace.join("crates/gtkg-testkit/browser/support/pixel_diff.py");
+    let helper = root().join("crates/gtkg-testkit/browser/support/pixel_diff.py");
     let temp = tempfile::tempdir().unwrap();
-    let outside = temp.path().join("outside");
+    let base = temp.path().canonicalize().unwrap();
+    let workspace = base.join("workspace");
+    fs::create_dir_all(workspace.join("output")).unwrap();
+    let outside = base.join("outside");
     fs::create_dir(&outside).unwrap();
 
     #[cfg(unix)]
@@ -69,7 +71,7 @@ fn unsafe_overlap_and_symlink_roots_reject_before_cargo_or_browser() {
     fs::remove_file(workspace.join("output/m02-symlink-root")).unwrap();
 
     let harness = fs::read_to_string(
-        workspace.join("crates/gtkg-testkit/browser/i06_codex_wiki_e2e_contract.sh"),
+        root().join("crates/gtkg-testkit/browser/i06_codex_wiki_e2e_contract.sh"),
     )
     .unwrap();
     let preflight = harness.find("--prepare-roots").unwrap();

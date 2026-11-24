@@ -240,6 +240,7 @@ fn runner_imports_match_the_frozen_python_stdlib_allowlist() {
         imports,
         BTreeSet::from([
             "argparse".to_owned(),
+            "base64".to_owned(),
             "binascii".to_owned(),
             "hashlib".to_owned(),
             "json".to_owned(),

@@ -7,9 +7,9 @@
   "state": "development_manifest",
   "release_asset": false,
   "required_files": [
-    {"path":"Cargo.toml","sha256":"e9d635fdfefa873ff2adb08e525b379348800a287a2298a4183d89c8d97383cc"},
-    {"path":"Cargo.lock","sha256":"0206615cdba3b4d9a6f59eb9cf7c79fb3cc9792530ce503664cdfb6154552c9d"},
-    {"path":"README.md","sha256":"ddecbebb2d6fdf15ba0b2f81b0e7986f5b21efe482be113cf67959bc92c02802"},
+    {"path":"Cargo.toml","sha256":"bf4e72beacd30d2fe0bac46c64d033c541bcf0759477110ccf8ae3ef3b8f79d0"},
+    {"path":"Cargo.lock","sha256":"2164b88a08885875cfdf8b2841c38693ffb7d6a6609a19db8eb17d518d058223"},
+    {"path":"README.md","sha256":"1a6326d2b3675fd5fa84183f5a178097c8829ad1ae0a09c6880089e04b6e62d2"},
     {"path":"LICENSE","sha256":"c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"},
     {"path":"NOTICE","sha256":"fac659816f920667dcc6b9bce91c66304eb32eef5f020db4f8e2211235f171b7"},
     {"path":"VERSION","sha256":"d915cc95d6ca8f47ae297713ed46d4e5c5d99ddd29fc3c61e263bdf305f2b5b0"}

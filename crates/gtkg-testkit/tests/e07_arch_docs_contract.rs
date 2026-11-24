@@ -59,11 +59,13 @@ fn architecture_documents_carry_real_structure_and_dependency_synthesis() {
         let gtkg = document.frontmatter.gtkg.expect("architecture extensions");
         assert_eq!(gtkg["schema"].as_str(), Some("gtkg.architecture/v2"));
         assert_eq!(gtkg["bundle_version"].as_str(), Some("0.1.0"));
-        assert_eq!(gtkg["generator_version"].as_str(), Some("gtkg/0.1.0"));
-        assert!(
-            gtkg["document_version"]
-                .as_str()
-                .is_some_and(|version| version.starts_with("0.1.0+gtkg."))
+        assert_eq!(
+            gtkg["generator_version"].as_str(),
+            Some(concat!("gtkg/", env!("CARGO_PKG_VERSION")))
+        );
+        assert_eq!(
+            gtkg["document_version"].as_str(),
+            Some(concat!("0.1.0+gtkg.", env!("CARGO_PKG_VERSION")))
         );
         assert!(
             body.contains("## Accepted summary insights")

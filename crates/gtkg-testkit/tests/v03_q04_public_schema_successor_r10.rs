@@ -4,7 +4,7 @@ include!("v03_q04_public_schema_successor.rs");
 fn q04_r10_closed_schemas_include_previous_page_only_for_structural_slices() {
     for operation in GRAPH_OPERATIONS {
         let envelope = v2_operation_request_schema(operation);
-        let schema = &envelope["properties"]["payload"];
+        let schema = schema_branches::legacy_payload(operation, &envelope);
         let mut expected = COMMON.into_iter().collect::<BTreeSet<_>>();
         let operation_fields = match operation {
             V2OperationId::GraphNeighbors => &[

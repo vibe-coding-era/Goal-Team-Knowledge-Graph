@@ -26,8 +26,19 @@ fn q04_structural_continuation_survives_process_state_loss_and_parallel_consumer
             &payload,
         )
     };
-    let first_consumer = execute().unwrap();
-    let second_consumer = execute().unwrap();
+    let mut first_consumer = execute().unwrap();
+    let mut second_consumer = execute().unwrap();
+    // Each consumer measures its own elapsed time. All replay data must agree.
+    for response in [&mut first_consumer, &mut second_consumer] {
+        let plans = response["evidence_pack"]["query_index"]["query_plans"]
+            .as_array_mut()
+            .expect("query plans");
+        assert!(!plans.is_empty());
+        for plan in plans {
+            assert!(plan["latency_ms"].is_u64());
+            plan.as_object_mut().unwrap().remove("latency_ms");
+        }
+    }
     assert_eq!(first_consumer, second_consumer);
     assert_eq!(
         first_consumer["result"]["impacts"]

@@ -2,6 +2,9 @@ include!("v03_q04_schema_runtime_parity_successor.rs");
 
 use gtkg_protocol::v2::v2_operation_request_schema;
 
+#[path = "support/v03_graph_schema_branches.rs"]
+mod schema_branches;
+
 #[test]
 fn q04_previous_page_schema_requires_continuation_exactly_where_runtime_does() {
     for operation in [
@@ -10,7 +13,7 @@ fn q04_previous_page_schema_requires_continuation_exactly_where_runtime_does() {
         V2OperationId::GraphExplain,
     ] {
         let schema = v2_operation_request_schema(operation);
-        let payload_schema = &schema["properties"]["payload"];
+        let payload_schema = schema_branches::legacy_payload(operation, &schema);
         let all_of = payload_schema["allOf"].as_array().unwrap();
         assert!(all_of.iter().any(|rule| {
             rule["if"]["required"] == serde_json::json!(["previous_page"])

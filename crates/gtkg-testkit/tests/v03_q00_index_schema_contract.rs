@@ -1,9 +1,9 @@
 use gtkg_core::v03::query::{
-    QueryContractErrorV1, query_shard_catalog_digests_v1, tokenize_query_v1,
-    validate_adjacency_shard_json_v1, validate_adjacency_shard_v1, validate_lexical_shard_json_v1,
-    validate_lexical_shard_v1, validate_query_index_manifest_json_v1,
-    validate_query_index_manifest_v1, validate_query_plan_receipt_json_v1,
-    validate_query_plan_receipt_v1,
+    QueryContractErrorV1, query_index_manifest_sha256_v1, query_shard_catalog_digests_v1,
+    tokenize_query_v1, validate_adjacency_shard_json_v1, validate_adjacency_shard_v1,
+    validate_lexical_shard_json_v1, validate_lexical_shard_v1,
+    validate_query_index_manifest_json_v1, validate_query_index_manifest_v1,
+    validate_query_plan_receipt_json_v1, validate_query_plan_receipt_v1,
 };
 use gtkg_protocol::v03::query::{
     ADJACENCY_SHARD_SCHEMA_V1, AdjacencyDirectionV1, AdjacencyShardV1, LEXICAL_SHARD_SCHEMA_V1,
@@ -125,7 +125,7 @@ fn plan_receipt() -> QueryPlanReceiptV1 {
     QueryPlanReceiptV1 {
         schema_version: QUERY_PLAN_RECEIPT_SCHEMA_V1.to_owned(),
         query_sha256: sha256("用户认证"),
-        index_manifest_sha256: sha256("manifest"),
+        index_manifest_sha256: query_index_manifest_sha256_v1(&manifest()),
         selected_shards: vec!["lex-000".to_owned()],
         excluded_shards: vec!["adj-000".to_owned()],
         bytes_read: 8_192,

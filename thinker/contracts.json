@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gtkg:thinker:contracts:v1",
+  "title": "Thinker v1 domain records",
+  "anyOf": [
+    {"$ref": "#/$defs/evidence"}, {"$ref": "#/$defs/judgment"},
+    {"$ref": "#/$defs/recommendation"}, {"$ref": "#/$defs/feedback"},
+    {"$ref": "#/$defs/event"}, {"$ref": "#/$defs/context"}, {"$ref": "#/$defs/memory"}
+  ],
+  "$defs": {
+    "id": {"type": "string", "minLength": 1},
+    "ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "version": {
+      "type": "object", "required": ["repo","ref","source_revision"],
+      "properties": {
+        "repo": {"$ref":"#/$defs/id"}, "ref": {"type":"string","pattern":"^refs/(heads|tags|remotes)/"},
+        "source_revision": {"type":"string","pattern":"^([0-9a-f]{40}|[0-9a-f]{64})$"}
+      }
+    },
+    "evidence": {
+      "allOf":[{"$ref":"#/$defs/version"}],
+      "required":["id","scope","source_kind","locator","content_hash","text"],
+      "properties":{
+        "locator":{"type":"object","minProperties":1},"text":{"type":"string"},
+        "content_hash":{"type":"string","pattern":"^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "judgment": {
+      "allOf":[{"$ref":"#/$defs/version"}],
+      "required":["judgment_id","revision","claim","status","supports","contradicts","review_after"],
+      "properties":{"revision":{"type":"integer","minimum":1},"supports":{"$ref":"#/$defs/ids"},
+        "contradicts":{"$ref":"#/$defs/ids"},"status":{"enum":["candidate","active","superseded","needs_evidence","withdrawn"]}}
+    },
+    "recommendation": {
+      "allOf":[{"$ref":"#/$defs/version"}],
+      "required":["id","judgment_revision","executor_task_id","next_action","expires_at","expected_check"]
+    },
+    "feedback": {
+      "type":"object","required":["recommendation_id","judgment_revision","acceptance","outcome","actor"],
+      "properties":{"outcome":{"enum":["unverified","success","failure"]},
+        "acceptance":{"enum":["accepted","rejected","corrected","ignored"]}}
+    },
+    "event": {
+      "type":"object","required":["event_id","schema_version","scope","type","recorded_at","payload","seq"],
+      "properties":{"schema_version":{"const":1},"payload":{"type":"object"},"seq":{"type":"integer","minimum":1}}
+    },
+    "context": {
+      "type":"object","required":["as_of","brief","evidence_refs","active_judgments","open_questions","partial_sources"],
+      "properties":{"evidence_refs":{"type":"array"},"active_judgments":{"type":"array"},"partial_sources":{"type":"array"},
+        "briefs":{"type":"array","items":{"$ref":"#/$defs/brief"}}}
+    },
+    "brief": {
+      "allOf":[{"$ref":"#/$defs/version"}],
+      "required":["brief_id","judgment_revision","format_version","text","citations","authoritative","pre_generated"],
+      "properties":{"format_version":{"const":1},"text":{"type":"string"},"authoritative":{"const":false},
+        "pre_generated":{"type":"boolean"},"generated_at":{"type":["number","null"]},
+        "citations":{"type":"array","items":{"type":"object","required":["evidence_id","content_hash","locator","relation"],
+          "properties":{"relation":{"enum":["supports","contradicts"]},"locator":{"type":"object"}}}}}
+    },
+    "memory": {
+      "type":"object","required":["id","kind","evidence_ids","judgment_revision"],
+      "properties":{"evidence_ids":{"$ref":"#/$defs/ids"}}
+    }
+  }
+}

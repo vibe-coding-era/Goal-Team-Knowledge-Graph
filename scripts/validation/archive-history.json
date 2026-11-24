@@ -1,0 +1,562 @@
+[
+  {
+    "target": "audit_regression_contract",
+    "test": "original_v01_design_documents_conform_to_okf",
+    "class": "historical",
+    "stage": "audit_regression",
+    "reason": "R194 依赖未公开的 V0.1 设计冻结文档或早期四文件 Skill 精确集合。当前新增 V0.4 workflow 不能冒充早期集合。",
+    "successor": "必须取得对应原始提交，以及 deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md、ARCHITECTURE.md 和同阶段 Skill 包；新模板不替代原件。"
+  },
+  {
+    "target": "d07_development_acceptance_contract",
+    "test": "every_prd_requirement_and_acceptance_condition_has_one_development_trace_row",
+    "class": "historical",
+    "stage": "d07_development_acceptance",
+    "reason": "R194 依赖未公开的 V0.1 设计冻结文档或早期四文件 Skill 精确集合。当前新增 V0.4 workflow 不能冒充早期集合。",
+    "successor": "必须取得对应原始提交，以及 deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md、ARCHITECTURE.md 和同阶段 Skill 包；新模板不替代原件。"
+  },
+  {
+    "target": "d07_development_acceptance_contract",
+    "test": "legacy_design_freeze_and_source_distribution_boundaries_are_explicit",
+    "class": "historical",
+    "stage": "d07_development_acceptance",
+    "reason": "R194 依赖未公开的 V0.1 设计冻结文档或早期四文件 Skill 精确集合。当前新增 V0.4 workflow 不能冒充早期集合。",
+    "successor": "必须取得对应原始提交，以及 deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md、ARCHITECTURE.md 和同阶段 Skill 包；新模板不替代原件。"
+  },
+  {
+    "target": "d07_development_acceptance_contract",
+    "test": "thin_skill_candidate_has_the_exact_progressive_surface_and_only_calls_gtkg",
+    "class": "historical",
+    "stage": "d07_development_acceptance",
+    "reason": "R194 依赖未公开的 V0.1 设计冻结文档或早期四文件 Skill 精确集合。当前新增 V0.4 workflow 不能冒充早期集合。",
+    "successor": "必须取得对应原始提交，以及 deliverables/goal-team-knowledge-graph/versions/V0.1/PRD.md、ARCHITECTURE.md 和同阶段 Skill 包；新模板不替代原件。"
+  },
+  {
+    "target": "d07_transport_identity_contract",
+    "test": "codegraph_and_qoder_are_informative_only_and_absent_from_runtime_dependency_surfaces",
+    "class": "historical",
+    "stage": "d07_transport_identity",
+    "reason": "R194 的旧断言禁止 CodeGraph 出现在运行时代码；V0.3 已显式引入 typed adapter 边界，不能沿用早期不存在适配器的假设。",
+    "successor": "必须取得 D07 阶段原始提交；当前适配器行为另见 v03_a05_graphify_adapter_contract，不宣称重跑 D07 原版本。"
+  },
+  {
+    "target": "h02b_summary_frontmatter_contract",
+    "test": "g03_accepted_summaries_parse_as_okf_with_frontmatter",
+    "class": "historical",
+    "stage": "h02b_summary_frontmatter",
+    "reason": "R194 缺少 G03 历史 accepted summaries 精确集合及摘要字节，原测试含固定 SHA。",
+    "successor": "必须取得原始 G03 accepts 目录中测试列明的全部 summary.md 和对应固定 source/template SHA，不得重写摘要充数。"
+  },
+  {
+    "target": "h07_product_completion_contract",
+    "test": "source_inspect_can_consume_one_digest_bound_config_without_weakening_legacy_payloads",
+    "class": "historical",
+    "stage": "h07_product_completion",
+    "reason": "R194 使用已被后继封闭 schema 拒绝的未版本化 source.inspect config_path 字段。",
+    "successor": "k01_config_source_negative_contract::v1_source_inspect_rejects_the_unversioned_config_mode_without_expanding_its_schema；l01_source_inspect_presence_contract::v1_source_inspect_accepts_only_its_frozen_workspace_and_repositories_schema_across_transports。原行为需 H07 原始提交。"
+  },
+  {
+    "target": "i06_codex_wiki_contract",
+    "test": "pixel_diff_and_published_evidence_are_repo_local_and_digest_current",
+    "class": "historical",
+    "stage": "i06_codex_wiki",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "i06_codex_wiki_contract",
+    "test": "reports_disclose_reference_and_pixel_boundaries",
+    "class": "historical",
+    "stage": "i06_codex_wiki",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "i06_codex_wiki_contract",
+    "test": "reverse_engineering_artifacts_are_complete_and_a2ui_stays_three_messages",
+    "class": "historical",
+    "stage": "i06_codex_wiki",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "l02_i06_evidence_security_contract",
+    "test": "evidence_checksum_is_an_exact_duplicate_free_symlink_free_set",
+    "class": "historical",
+    "stage": "l02_i06_evidence_security",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "l02_i06_evidence_security_contract",
+    "test": "receipt_uses_portable_paths_and_binds_runtime_and_observed_security",
+    "class": "historical",
+    "stage": "l02_i06_evidence_security",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "m02_i06_root_portability_contract",
+    "test": "both_sessions_observe_exact_offline_probe_and_zero_unexpected_remote",
+    "class": "historical",
+    "stage": "m02_i06_root_portability",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "m02_i06_root_portability_contract",
+    "test": "persisted_fixture_metrics_and_receipt_have_no_absolute_paths",
+    "class": "historical",
+    "stage": "m02_i06_root_portability",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "n01_publish_transaction_contract",
+    "test": "publish_detects_diff_directory_split_brain_after_first_anchored_write",
+    "class": "historical",
+    "stage": "n01_publish_transaction",
+    "reason": "R194 缺少 Codex Wiki 历史发布证据的截图、像素指标、e2e 回执或摘要清单；该函数读取既存原件而非自行生成完整夹具。",
+    "successor": "必须取得 deliverables/codex-wiki-reverse/ 原始 a2ui、报告和 evidence 全集（含 SHA256SUMS.txt、source/generated/diff/e2e）；禁止生成替代历史截图或回执。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "current_normative_corpus_manifest_digest_drift_is_invalid_without_running_the_runner",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "current_normative_corpus_preserves_runner_warnings_as_advisories_without_hiding_them",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "pinned_runner_availability_is_not_current_corpus_reference_compatibility",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "runner_manifest_rejects_a_clean_checkout_at_a_different_head",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "runner_manifest_rejects_a_different_command_without_executing_it",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "runner_manifest_rejects_staged_index_tamper",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "runner_manifest_rejects_tracked_worktree_tamper_after_a_clean_green_check",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t03_okf_four_axis_contract",
+    "test": "runner_manifest_rejects_untracked_paths_outside_the_manifest_allowlist",
+    "class": "historical",
+    "stage": "v02_t03_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "executable_local_receipt_round_trips_the_actual_v02_prd_relation_result",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "fenced_examples_do_not_create_relations_and_unsupported_formats_are_explicitly_omitted",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "markdown_source_footnote_and_link_close_against_a_t03_receipt",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "missing_or_orphan_or_duplicate_relations_fail_closed",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "t03_binding_requires_the_exact_raw_pin_corpus_manifest_and_receipt_relation",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t06_document_relations_contract",
+    "test": "v02_prd_source_footnote_and_link_relations_close",
+    "class": "historical",
+    "stage": "v02_t06_document_relations",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t08_transport_e2e_contract",
+    "test": "v1_remains_default_and_v2_rejects_v1_only_ids_at_the_transport_boundary",
+    "class": "historical",
+    "stage": "v02_t08_transport_e2e",
+    "reason": "R194 固定 V0.2 的默认传输、阶段实现数量或尚未实现 handler 状态；后续 profile/handler registry 已演进。",
+    "successor": "v03_p06_current_transport_successor_r6::p06_r6_sha_bound_current_binary_full_transport_profile_and_v1_contract；旧阶段结果必须使用 T08 原始提交。"
+  },
+  {
+    "target": "v02_t08_transport_e2e_contract",
+    "test": "v2_cli_and_mcp_expose_only_the_v2_registry_and_preserve_field_exact_error_parity",
+    "class": "historical",
+    "stage": "v02_t08_transport_e2e",
+    "reason": "R194 固定 V0.2 的默认传输、阶段实现数量或尚未实现 handler 状态；后续 profile/handler registry 已演进。",
+    "successor": "v03_p06_current_transport_successor_r6::p06_r6_sha_bound_current_binary_full_transport_profile_and_v1_contract；旧阶段结果必须使用 T08 原始提交。"
+  },
+  {
+    "target": "v02_t08_v2_transport_contract",
+    "test": "v2_presence_implementation_and_callability_are_separate_axes",
+    "class": "historical",
+    "stage": "v02_t08_v2_transport",
+    "reason": "R194 固定 V0.2 的默认传输、阶段实现数量或尚未实现 handler 状态；后续 profile/handler registry 已演进。",
+    "successor": "v03_p06_current_transport_successor_r6::p06_r6_sha_bound_current_binary_full_transport_profile_and_v1_contract；旧阶段结果必须使用 T08 原始提交。"
+  },
+  {
+    "target": "v02_t08_v2_transport_contract",
+    "test": "v2_rejects_v1_only_ids_before_any_handler_and_is_honest_about_unimplemented_ids",
+    "class": "historical",
+    "stage": "v02_t08_v2_transport",
+    "reason": "R194 固定 V0.2 的默认传输、阶段实现数量或尚未实现 handler 状态；后续 profile/handler registry 已演进。",
+    "successor": "v03_p06_current_transport_successor_r6::p06_r6_sha_bound_current_binary_full_transport_profile_and_v1_contract；旧阶段结果必须使用 T08 原始提交。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "accepted_sets_must_exactly_partition_every_entailed_and_unknown_receipt_record",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "contradiction_or_uncovered_citation_cannot_escape_into_an_accepted_set",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "grounded_claims_require_exact_t02_evidence_t07_context_and_t09_job_binding",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "high_risk_claims_require_distinct_t02_spans_not_duplicate_citations",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "mixed_entailed_and_rejected_proposals_return_a_valid_auditable_rejected_set",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "repeated_or_tampered_snippets_cannot_substitute_a_different_t02_span",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "t03_and_t04_evidence_can_only_enter_through_their_restricted_readbacks",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t10_claim_verification_contract",
+    "test": "unknown_becomes_explicit_abstention_but_all_abstain_is_not_accepted",
+    "class": "historical",
+    "stage": "v02_t10_claim_verification",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "claim_aware_hybrid_query_fails_closed_on_unbounded_or_unauthorized_payload_fields",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "claim_aware_hybrid_query_reads_verified_layers_without_promoting_abstentions_or_structure",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "claim_aware_hybrid_query_rejects_a_symlinked_overlay_root",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "graph_search_success_has_cli_mcp_structured_content_parity",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "graph_search_v2_dispatcher_requires_two_workspace_bound_verified_artifacts",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "overlay_is_deterministic_separate_from_structural_graph_and_readable",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "overlay_readback_rejects_json_whitespace_byte_tamper",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "overlay_readback_rejects_symlinked_and_hardlinked_artifact_files",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "overlay_rejects_claim_rewrite_after_t10_and_structural_snapshot_drift",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t11b_knowledge_overlay_contract",
+    "test": "partial_t10_input_binds_the_complete_proposal_but_never_accepts_unknown_claims",
+    "class": "historical",
+    "stage": "v02_t11b_knowledge_overlay",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t12a_structural_query_contract",
+    "test": "v2_dispatcher_reads_only_a_workspace_relative_verified_graph_artifact",
+    "class": "historical",
+    "stage": "v02_t12a_structural_query",
+    "reason": "R194 使用旧 graph_artifact_path payload 或默认 core 可调用 graph.neighbors 的阶段假设，后继文件索引 schema/profile 已替换。",
+    "successor": "v03_q04_file_graph_operations::q04_dispatcher_uses_only_new_index_payload_and_preserves_read_policy；旧 payload 必须在 T12A/T14A 原始提交验证。"
+  },
+  {
+    "target": "v02_t14a_runtime_e2e_contract",
+    "test": "local_source_to_typed_graph_query_has_cli_mcp_success_parity_and_runtime_identity",
+    "class": "historical",
+    "stage": "v02_t14a_runtime_e2e",
+    "reason": "R194 使用旧 graph_artifact_path payload 或默认 core 可调用 graph.neighbors 的阶段假设，后继文件索引 schema/profile 已替换。",
+    "successor": "v03_q04_file_graph_operations::q04_dispatcher_uses_only_new_index_payload_and_preserves_read_policy；旧 payload 必须在 T12A/T14A 原始提交验证。"
+  },
+  {
+    "target": "v02_t14b_local_wiki_a2ui_contract",
+    "test": "t14b_progressive_wiki_a2ui_readback_binds_t12b_and_t13_without_eager_pages",
+    "class": "historical",
+    "stage": "v02_t14b_local_wiki_a2ui",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t14b_local_wiki_a2ui_contract",
+    "test": "t14b_readback_rejects_hardlinked_index_and_selected_page_symlink",
+    "class": "historical",
+    "stage": "v02_t14b_local_wiki_a2ui",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t14b_local_wiki_a2ui_contract",
+    "test": "t14b_rejects_t12b_query_receipt_drift_even_when_it_is_rehashed",
+    "class": "historical",
+    "stage": "v02_t14b_local_wiki_a2ui",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t14b_local_wiki_a2ui_contract",
+    "test": "t14b_rejects_t13_identity_drift_before_writing_projection",
+    "class": "historical",
+    "stage": "v02_t14b_local_wiki_a2ui",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t15c_local_okf_four_axis_contract",
+    "test": "frozen_t03_runner_receipt_feeds_a_scoped_local_t15c_observation",
+    "class": "historical",
+    "stage": "v02_t15c_local_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t15c_local_okf_four_axis_contract",
+    "test": "strict_suite_reads_t03_t11b_and_persisted_t14a_evidence",
+    "class": "historical",
+    "stage": "v02_t15c_local_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t15c_local_okf_four_axis_contract",
+    "test": "strict_suite_rejects_t11b_bytes_replaced_under_the_same_manifest",
+    "class": "historical",
+    "stage": "v02_t15c_local_okf_four_axis",
+    "reason": "R194 依赖缺失的 T03 固定 runner manifest、13-case 规范语料 manifest 或 passed 原始回执；下游精确绑定同一证据链。规范原文提交不等于 runner 提交。",
+    "successor": "必须取得 docs/reference/okf-v0.2-reference-W4G1/MANIFEST.json 及其确切 Git checkout、deliverables/v02-t03/current-okf-normative-corpus.json 和 current-okf-normative-corpus-receipt.json；T15C 另需原 T11B/T14A 证据。新 successor 需独立身份和真实新运行。"
+  },
+  {
+    "target": "v02_t15d_local_readiness_contract",
+    "test": "t15d_local_plan_is_explicitly_non_certifying_and_binds_its_real_consumers",
+    "class": "historical",
+    "stage": "v02_t15d_local_readiness",
+    "reason": "R194 缺少原始本机准备计划；原测试只接受 not_run 的计划身份，不能用后来的实测结果替代。",
+    "successor": "必须取得 deliverables/v02-t15d/local-readiness-plan.json 原件及其 T14A/T14B 消费者版本。"
+  },
+  {
+    "target": "v03_a05_graphify_adapter_security_successor",
+    "test": "a05_v2_binds_canonical_schema_to_five_exact_upstream_blobs",
+    "class": "historical",
+    "stage": "v03_a05_graphify_adapter_security_successor",
+    "reason": "R194 缺少绑定五个精确 upstream blobs 的 A05 pin manifest；其它六条安全函数没有被归档。",
+    "successor": "必须取得 deliverables/v03-development/test-receipts/a05-upstream-pin.json 及原测试指定的五个 upstream blobs，并逐项验证固定 SHA。"
+  },
+  {
+    "target": "v03_b00_benchmark_plan_contract",
+    "test": "agent_task_denominator_contains_30_blind_tasks_and_270_planned_runs",
+    "class": "historical",
+    "stage": "v03_b00_benchmark_plan",
+    "reason": "R194 缺少冻结 benchmark corpus、300 问、30 任务、270 计划运行或版本化计划/pins；公开源不能推导原始题目和分母。",
+    "successor": "必须取得 deliverables/v03-benchmark/{corpus-manifest,benchmark-plan-v3,query-denominator,agent-task-denominator,pins}.json 原件；不得生成替代题目或 gold。"
+  },
+  {
+    "target": "v03_b00_benchmark_plan_contract",
+    "test": "benchmark_plan_v3_freezes_the_exact_common_denominator_without_running_it",
+    "class": "historical",
+    "stage": "v03_b00_benchmark_plan",
+    "reason": "R194 缺少冻结 benchmark corpus、300 问、30 任务、270 计划运行或版本化计划/pins；公开源不能推导原始题目和分母。",
+    "successor": "必须取得 deliverables/v03-benchmark/{corpus-manifest,benchmark-plan-v3,query-denominator,agent-task-denominator,pins}.json 原件；不得生成替代题目或 gold。"
+  },
+  {
+    "target": "v03_b00_benchmark_plan_contract",
+    "test": "corpus_has_eight_license_bound_commit_pins_and_disjoint_splits",
+    "class": "historical",
+    "stage": "v03_b00_benchmark_plan",
+    "reason": "R194 缺少冻结 benchmark corpus、300 问、30 任务、270 计划运行或版本化计划/pins；公开源不能推导原始题目和分母。",
+    "successor": "必须取得 deliverables/v03-benchmark/{corpus-manifest,benchmark-plan-v3,query-denominator,agent-task-denominator,pins}.json 原件；不得生成替代题目或 gold。"
+  },
+  {
+    "target": "v03_b00_benchmark_plan_contract",
+    "test": "official_competitor_pins_are_current_candidates_but_not_execution_receipts",
+    "class": "historical",
+    "stage": "v03_b00_benchmark_plan",
+    "reason": "R194 缺少冻结 benchmark corpus、300 问、30 任务、270 计划运行或版本化计划/pins；公开源不能推导原始题目和分母。",
+    "successor": "必须取得 deliverables/v03-benchmark/{corpus-manifest,benchmark-plan-v3,query-denominator,agent-task-denominator,pins}.json 原件；不得生成替代题目或 gold。"
+  },
+  {
+    "target": "v03_b00_benchmark_plan_contract",
+    "test": "query_denominator_contains_300_frozen_questions_and_required_risk_mix",
+    "class": "historical",
+    "stage": "v03_b00_benchmark_plan",
+    "reason": "R194 缺少冻结 benchmark corpus、300 问、30 任务、270 计划运行或版本化计划/pins；公开源不能推导原始题目和分母。",
+    "successor": "必须取得 deliverables/v03-benchmark/{corpus-manifest,benchmark-plan-v3,query-denominator,agent-task-denominator,pins}.json 原件；不得生成替代题目或 gold。"
+  },
+  {
+    "target": "v03_b01_environment_contract",
+    "test": "b01_gtkg_candidate_is_os_sandboxed_without_install_or_telemetry_promotion",
+    "class": "historical",
+    "stage": "v03_b01_environment",
+    "reason": "R194 缺少历史环境预检回执；当前机器可运行不证明当时 competitor materialization 或 sandbox 状态。",
+    "successor": "必须取得 deliverables/v03-benchmark/receipts/b01-environment-preflight-r1.json 与 pins.json 和其固定运行环境原件。"
+  },
+  {
+    "target": "v03_b01_environment_contract",
+    "test": "b01_preserves_source_pins_as_non_execution_evidence",
+    "class": "historical",
+    "stage": "v03_b01_environment",
+    "reason": "R194 缺少历史环境预检回执；当前机器可运行不证明当时 competitor materialization 或 sandbox 状态。",
+    "successor": "必须取得 deliverables/v03-benchmark/receipts/b01-environment-preflight-r1.json 与 pins.json 和其固定运行环境原件。"
+  },
+  {
+    "target": "v03_b01_environment_contract",
+    "test": "b01_requires_materialized_verified_competitor_runtimes_before_benchmark_execution",
+    "class": "historical",
+    "stage": "v03_b01_environment",
+    "reason": "R194 缺少历史环境预检回执；当前机器可运行不证明当时 competitor materialization 或 sandbox 状态。",
+    "successor": "必须取得 deliverables/v03-benchmark/receipts/b01-environment-preflight-r1.json 与 pins.json 和其固定运行环境原件。"
+  }
+]

@@ -300,8 +300,10 @@ fn run_v2_operation(
         ));
     }
     let profile = profile.unwrap_or("core");
-    let operation = V2OperationId::parse(operation_name)
-        .ok_or_else(|| format!("unknown v2 operation: {operation_name}"))?;
+    let operation = match request.resolve_operation() {
+        Ok(operation) => operation,
+        Err(error) => return report(&encode_v2_error(error)?, strict_exit),
+    };
     v2_profile_call_discovery(profile, profile_digest, operation)
         .map_err(|error| serde_json::to_string(&error).unwrap_or_else(|_| error.to_string()))?;
     let dispatcher = Dispatcher;

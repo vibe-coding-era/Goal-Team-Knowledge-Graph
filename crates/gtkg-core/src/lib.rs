@@ -44,8 +44,7 @@ use std::path::{Component, Path, PathBuf};
 
 use gtkg_protocol::v2::{
     CallabilityV2, OperationRequestV2, OperationResponseV2, PROTOCOL_VERSION_V2, V2ErrorCode,
-    V2ErrorEnvelope, V2OperationId, is_v1_only_operation_for_v2, v2_operation_definition,
-    validate_v2_operation_payload,
+    V2ErrorEnvelope, V2OperationId, v2_operation_definition, validate_v2_operation_payload,
 };
 use gtkg_protocol::{
     CORE_VERSION, ErrorCode, ErrorEnvelope, FileReceiptRef, OperationAvailability, OperationId,
@@ -340,48 +339,7 @@ impl Dispatcher {
         context: &CallContext,
         request: OperationRequestV2,
     ) -> Result<OperationResponseV2, V2ErrorEnvelope> {
-        if request.request_id.is_empty() {
-            return Err(V2ErrorEnvelope::new(
-                &request,
-                V2ErrorCode::InvalidRequest,
-                "request-schema",
-                "request_id must not be empty",
-                "provide a non-empty request_id that can bind the response to this exact request",
-            ));
-        }
-        if request.protocol_version != PROTOCOL_VERSION_V2 {
-            return Err(V2ErrorEnvelope::new(
-                &request,
-                V2ErrorCode::ProtocolVersionMismatch,
-                "protocol",
-                format!(
-                    "unsupported protocol version {}; expected {PROTOCOL_VERSION_V2}",
-                    request.protocol_version
-                ),
-                "select gtkg.protocol/v1 for legacy operations or send the exact v2 protocol version",
-            ));
-        }
-        if is_v1_only_operation_for_v2(&request.operation_id) {
-            return Err(V2ErrorEnvelope::new(
-                &request,
-                V2ErrorCode::OperationVersionUnsupported,
-                "version-routing",
-                format!(
-                    "operation {} is v1-only and is unsupported by gtkg.protocol/v2",
-                    request.operation_id
-                ),
-                "retry this exact operation with protocol_version=gtkg.protocol/v1",
-            ));
-        }
-        let Some(operation_id) = V2OperationId::parse(&request.operation_id) else {
-            return Err(V2ErrorEnvelope::new(
-                &request,
-                V2ErrorCode::OperationNotImplemented,
-                "dispatch",
-                "operation is absent from the closed v2 public registry",
-                "use v2 discovery to select one of the published operation identifiers",
-            ));
-        };
+        let operation_id = request.resolve_operation()?;
         let definition = v2_operation_definition(operation_id).ok_or_else(|| {
             V2ErrorEnvelope::new(
                 &request,

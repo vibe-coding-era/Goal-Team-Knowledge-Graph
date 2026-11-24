@@ -218,6 +218,11 @@ fn should_visit(root: &Path, production_workspace: bool, entry: &DirEntry) -> bo
     if relative.starts_with(Path::new("crates/gtkg-testkit")) {
         return false;
     }
+    // Local Goal Teams evidence can include transcripts and integration reproducers.
+    // This directory is outside the GTKG distribution.
+    if relative.starts_with(Path::new(".goal-teams/evidence")) {
+        return false;
+    }
     !relative
         .components()
         .any(|component| component.as_os_str() == "fixtures")

@@ -7,6 +7,7 @@ filters.
 """
 
 import argparse
+import base64
 import binascii
 import hashlib
 import json
@@ -668,7 +669,7 @@ def prepare_roots(repo_root, output_root, publish_root):
 
 def _decode_identity_token(token):
     try:
-        value = json.loads(binascii.a2b_base64(token, strict_mode=True))
+        value = json.loads(base64.b64decode(token, validate=True))
     except (ValueError, binascii.Error, json.JSONDecodeError) as error:
         raise ValueError("invalid output identity token") from error
     if set(value) != {"repo_root", "output_root", "identities"}:
@@ -843,7 +844,7 @@ def secure_write(repo_root, identity_token, relative_path, encoding, stream):
             raise ValueError("secure writer input budget exceeded")
         if encoding == "base64":
             try:
-                payload = binascii.a2b_base64(payload, strict_mode=True)
+                payload = base64.b64decode(payload, validate=True)
             except binascii.Error as error:
                 raise ValueError("invalid base64 writer input") from error
         elif encoding != "raw":

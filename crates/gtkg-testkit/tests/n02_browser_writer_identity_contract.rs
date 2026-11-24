@@ -17,8 +17,9 @@ fn secure_writer_rejects_output_root_swap_without_writing_outside() {
     use std::io::Write;
     use std::os::unix::fs::symlink;
 
-    let workspace = root();
-    let helper = workspace.join("crates/gtkg-testkit/browser/support/pixel_diff.py");
+    let helper = root().join("crates/gtkg-testkit/browser/support/pixel_diff.py");
+    let fixture = tempfile::tempdir().unwrap();
+    let workspace = fixture.path().canonicalize().unwrap();
     let output = workspace.join("output/n02-writer-swap");
     let publish = workspace.join("output/n02-writer-publish");
     let outside = tempfile::tempdir().unwrap();
